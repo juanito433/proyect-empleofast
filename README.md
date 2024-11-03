@@ -96,27 +96,31 @@ El perfil de la empresa deberá incluir secciones para el nombre, foto de perfil
 
 # Instalaciones
 Se necesta el archivo Vendor, para ello ejecuta en la terminal 
-```python
+```
 #Bash
 composer install
 ```.
-Depues se necesita crear le archo ```python .env```, para ello se necesita crear en la carpata raíz y copiar el contenido de
-```python
+Despues se necesita crear le archo ```python .env```, para ello se necesita crear en la carpata raíz y copiar el contenido de
+```
 #Bash
 .env.example
 ```.
-Luego se necesitara crear la APP_KEY, para ello ejecuta en la terminal ```python php artisan key:generate```.
+Luego se necesitara crear la APP_KEY, para ello ejecuta en la terminal
+```
+#Bash
+php artisan key:generate
+```.
 En caso de que comando
-```python
+```
 #Bash
 npm run dev
 ```te mande : "vite" no se reconoce como un comando interno o externo,
 programa o archivo por lotes ejecutable. Ejecuta el comando
-```python
+```
 #Bash
 npm install
 ``` y
-```python
+```
 #Bash
 npm run dev```.
 
