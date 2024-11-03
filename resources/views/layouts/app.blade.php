@@ -19,7 +19,7 @@
     <div class="grid">
         <x-navbar />
 
-        <aside>
+        <aside class="filtro">
             <x-filter />
         </aside>
         <main>
