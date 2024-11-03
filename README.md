@@ -94,35 +94,37 @@ El perfil de usuario deberá incluir secciones de nombre, foto de perfil, descri
 # Interfaz del Perfil de la Empresa
 El perfil de la empresa deberá incluir secciones para el nombre, foto de perfil, descripción, habilidades, redes sociales, ubicación y datos de contacto, entre otros. Además, el usuario tendrá la opción de editar su perfil, así como agregar y modificar ofertas laborales, y recibir las postulaciones correspondientes. También contará  con acceso a una barra de herramientas que facilitará la navegación y experiencia en la plataforma.
 
-# Instalaciones
+## Instalaciones
 Se necesta el archivo Vendor, para ello ejecuta en la terminal 
 ```
 #Bash
 composer install
-```.
+```
 Despues se necesita crear le archo ```python .env```, para ello se necesita crear en la carpata raíz y copiar el contenido de
 ```
 #Bash
 .env.example
-```.
+```
 Luego se necesitara crear la APP_KEY, para ello ejecuta en la terminal
 ```
 #Bash
 php artisan key:generate
-```.
+```
 En caso de que comando
 ```
 #Bash
 npm run dev
-```te mande : "vite" no se reconoce como un comando interno o externo,
+```
+Te mande : "vite" no se reconoce como un comando interno o externo,
 programa o archivo por lotes ejecutable. Ejecuta el comando
 ```
 #Bash
 npm install
-``` y
+```
+y
 ```
 #Bash
-npm run dev```.
+npm run dev```
 
 ## Usage
 ```python
