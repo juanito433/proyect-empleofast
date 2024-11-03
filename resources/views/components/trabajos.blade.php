@@ -1,7 +1,7 @@
 <div class="container shadow-md">
 
     @for ($i = 0; $i < 5; $i++)
-        <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+        <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl" style="margin:10PX ;">
             <div class="md:flex">
                 <div class="md:shrink-0">
                     <img class="h-48 w-full object-cover md:h-full md:w-48" src="{{asset('images/images.png')}}"
