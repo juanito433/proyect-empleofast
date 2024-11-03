@@ -95,11 +95,30 @@ El perfil de usuario deberá incluir secciones de nombre, foto de perfil, descri
 El perfil de la empresa deberá incluir secciones para el nombre, foto de perfil, descripción, habilidades, redes sociales, ubicación y datos de contacto, entre otros. Además, el usuario tendrá la opción de editar su perfil, así como agregar y modificar ofertas laborales, y recibir las postulaciones correspondientes. También contará  con acceso a una barra de herramientas que facilitará la navegación y experiencia en la plataforma.
 
 # Instalaciones
-Se necesta el archivo Vendor, para ello ejecuta en la terminal ```python composer install```.
-Depues se necesita crear le archo ```python .env```, para ello se necesita crear en la carpata raíz y copiar el contenido de ```python .env.example```.
+Se necesta el archivo Vendor, para ello ejecuta en la terminal 
+```python
+#Bash
+composer install
+```.
+Depues se necesita crear le archo ```python .env```, para ello se necesita crear en la carpata raíz y copiar el contenido de
+```python
+#Bash
+.env.example
+```.
 Luego se necesitara crear la APP_KEY, para ello ejecuta en la terminal ```python php artisan key:generate```.
-En caso de que comando ```python npm run dev```: te mande"vite" no se reconoce como un comando interno o externo,
-programa o archivo por lotes ejecutable. Ejecuta el comando ```python npm install``` y ```python npm run dev```.
+En caso de que comando
+```python
+#Bash
+npm run dev
+```te mande : "vite" no se reconoce como un comando interno o externo,
+programa o archivo por lotes ejecutable. Ejecuta el comando
+```python
+#Bash
+npm install
+``` y
+```python
+#Bash
+npm run dev```.
 
 ## Usage
 ```python
