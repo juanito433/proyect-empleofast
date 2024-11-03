@@ -100,7 +100,7 @@ Se necesta el archivo Vendor, para ello ejecuta en la terminal
 #Bash
 composer install
 ```
-Despues se necesita crear le archo ```python .env```, para ello se necesita crear en la carpata raíz y copiar el contenido de
+Despues se necesita crear el archivo .env, para ello se necesita crear en la carpata raíz y copiar el contenido de
 ```
 #Bash
 .env.example
