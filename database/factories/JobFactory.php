@@ -17,7 +17,13 @@ class JobFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'title'=>fake()->name(),
+            'description'=>fake()->sentence(8),
+            'id_company'=>fake()->numberBetween(10,50),
+            'publication_date'=>fake()->dateTime(),
+            'type_jobs'=>fake()->sentence(20),
+            'category'=>fake()->sentence(20),
+
         ];
     }
 }

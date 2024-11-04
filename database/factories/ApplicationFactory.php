@@ -17,7 +17,10 @@ class ApplicationFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'id_jobs' =>fake()->numberBetween(),
+            'id_candidate' =>fake()->numberBetween(),
+            'publication_date'=>fake()->dateTime(),
+            'status'=> fake()->sentence(10),
         ];
     }
 }

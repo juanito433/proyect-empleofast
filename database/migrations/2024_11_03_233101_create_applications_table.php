@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('applications', function (Blueprint $table) {
             $table->id();
+            $table->integer('id_jobs');
+            $table->integer('id_candidate');
+            $table->dateTime('publication_date');
+            $table->string('status');
             $table->timestamps();
         });
     }
