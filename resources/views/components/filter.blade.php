@@ -157,7 +157,7 @@
             <a href="anunciar.html" class="menu-item special">
                 <i class="fas fa-pen"></i>Entrevistas
             </a>
-            <a href="/empresa/admin/perfil" class="menu-item special" style="margin-top:10px ">
+            <a href="app/perfil" class="menu-item special" style="margin-top:10px ">
                 <div class="flex items-center bg-white p-4 rounded-full shadow-md">
                     <img alt="Person wearing a hat and sunglasses, looking to the side" class="w-16 h-16 rounded-full"
                         height="64" src="{{ asset('images/images.png') }}" width="64" style="object-fit: cover"/>

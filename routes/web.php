@@ -25,6 +25,7 @@ Route::get('selection/candidato', function () {
 Route::get('app/', function () {
     return view('layouts.app');
 });
-Route::get('empresa/admin/perfil', function () {
-    return view('empresa.admin.perfil');
+
+Route::get('app/perfil', function () {
+    return view('layouts.perfil');
 });
