@@ -17,7 +17,7 @@
             top: 13%;
         }
 
-        
+
 
         .menu-item {
             display: flex;
@@ -145,7 +145,7 @@
 
         <!-- Menú desplegable -->
         <div class="menu-dropdown" id="menu">
-            <a href="preferencias.html" class="menu-item">
+            <a href="#" class="menu-item" data-toggle="modal" data-target="#filtersModal">
                 <i class="fas fa-sliders-h"></i> Filtros
             </a>
             <a href="evaluaciones.html" class="menu-item">
@@ -160,7 +160,7 @@
             <a href="app/perfil" class="menu-item special" style="margin-top:10px ">
                 <div class="flex items-center bg-white p-4 rounded-full shadow-md">
                     <img alt="Person wearing a hat and sunglasses, looking to the side" class="w-16 h-16 rounded-full"
-                        height="64" src="{{ asset('images/images.png') }}" width="64" style="object-fit: cover"/>
+                        height="64" src="{{ asset('images/images.png') }}" width="64" style="object-fit: cover" />
                     <div class="ml-4">
                         <div class="text-lg font-semibold text-gray-900">
                             Perfil
@@ -172,7 +172,7 @@
                 </div>
             </a>
         </div>
-        
+
     </div>
 
     <script>
@@ -193,7 +193,7 @@
             }
         }
     </script>
-    
+
 </body>
 
 </html>
