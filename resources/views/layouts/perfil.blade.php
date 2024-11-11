@@ -1,5 +1,7 @@
 @vite(['resources/css/layout_perfile.css'])
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,39 +21,38 @@
 </head>
 
 <body>
-    <div class="grid">
-
-
+    <div class="layout">
         <x-nav />
 
-        <aside>
+        <aside></aside>
 
-        </aside>
-        <main>
+        <main class="rounded-lg shadow-md" style="margin-top: 70px; margin-bottom: 20px">
             <!-- Cover Photo -->
             <div class="relative">
-                <div class="bg-red-500 h-64">
+                <div class="bg-red-500 h-44 rounded-lg">
                 </div>
-                <button class="absolute bottom-4 right-4 bg-white text-black px-4 py-2 rounded shadow">
-                    <i class="fas fa-camera">
-                    </i>
-                    Agregar foto de portada
-                </button>
             </div>
             <!-- Profile Info -->
-            <div class="container mx-auto px-4 py-4">
+            <div class=" mx-auto bg-white" style="padding: 10px">
                 <div class="flex items-center">
                     <div class="relative">
-                        <img alt="Profile picture" class="rounded-full w-36 h-36 border-4 border-white" height="150"
-                            src="{{ asset('images/burgerking.png') }}" width="150" style="object-fit: cover" />
+                        <img alt="Profile picture" class="rounded-full border-4 border-white"
+                            src="{{ asset('images/burgerking.png') }}" width="250px" style="object-fit: cover; height: 250px;" />
                         <button class="absolute bottom-0 right-0 bg-gray-200 text-black p-2 rounded-full">
                             <i class="fas fa-camera">
                             </i>
                         </button>
                     </div>
-                    <div class="ml-4">
-                        <h1 class="text-2xl font-bold">
-                            Burgerking
+                    <div class="ml-4"
+                        style="
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    flex-direction: column;
+                    align-items: center;">
+                        <h1 class="text-3xl
+                        font-bold">
+                            Burger king
                         </h1>
                         <p class="text-gray-600">
                             Industria Alimentaria
@@ -61,32 +62,93 @@
                         </div>
                     </div>
                 </div>
-                <div class="mt-4 flex space-x-2">
-                    <button class="bg-blue-600 text-white px-4 py-2 rounded">
+                <div class="mt-4 space-x-2">
+                    <button class="bg-blue-600 text-white px-4 py-2 rounded" style="margin: 5px">
                         <i class="fas fa-plus">
                         </i>
-                        Agregar a historia
+                        Agregar Empleo
                     </button>
-                    <button class="bg-gray-200 text-black px-4 py-2 rounded">
+                    <button class="bg-gray-200 text-black px-4 py-2 rounded" style="margin: 5px">
                         <i class="fas fa-pencil-alt">
                         </i>
                         Editar perfil
                     </button>
-                    <button class="bg-gray-200 text-black px-4 py-2 rounded">
-                        <i class="fas fa-ellipsis-h">
-                        </i>
-                    </button>
                 </div>
+            
+            <br>
+
+                <div>
+                    <h2 class="text-2xl
+                    font-bold mx-4">
+                        Descripción
+                    </h2>
+                    <p class="text-gray-600 mx-4">
+                        Burger King Corporation, también conocida como BK, es una cadena de restaurantes de comida
+                        rápida
+                        estadounidense especializada en la elaboración de hamburguesas con sede central en Miami,
+                        Florida, y
+                        subsidiaria de Restaurant Brands International, un holding canadiense con sede en Toronto al
+                        que
+                        también pertenece </p>
+                </div>
+                
+            <br>
+            <h2 class="text-2xl font-bold mx-4">Redes Sociales</h3>
+            <div class="container">
+                
+                    <button class="margen">
+                        <div class="flex items-center bg-white p-2 rounded-full shadow-2xl" style="width: 250px;">
+                            <img alt="insta" class="rounded-full"
+                                src="{{ asset('images/07f0d7b69ef071571e4ada2f4d6a053a-icono-de-instagram-colorido.webp') }}"
+                                width="70px" />
+                            <div class="ml-4">
+                                <div class="text-lg font-semibold text-gray-900">
+                                    Instagram
+                                </div>
+                                <div class="text-sm text-gray-500">
+                                    @StarbucksMx
+                                </div>
+                            </div>
+                        </div>
+                    </button>
+                    <button class="margen">
+                        <div class="flex items-center bg-white p-2 rounded-full shadow-2xl" style="width: 250px;">
+                            <img alt="facebook" class=" rounded-full"
+                                src="{{ asset('images/facebook-logo-facebook-icon-transparent-free-png.webp') }}"
+                                width="70px" />
+                            <div class="ml-4">
+                                <div class="text-lg font-semibold text-gray-900">
+                                    Facebook
+                                </div>
+                                <div class="text-sm text-gray-500">
+                                    @StarbucksMx
+                                </div>
+                            </div>
+                        </div>
+                    </button>
+                    <button class="margen">
+                        <div class="flex items-center bg-white p-2 rounded-full shadow-2xl" style="width: 250px;">
+                            <img alt="x" class="rounded-full"
+                                src="{{ asset('images/8e72f7331b652b842b0c271ab144d332.png') }}" width="70px" />
+                            <div class="ml-4">
+                                <div class="text-lg font-semibold text-gray-900">
+                                    X
+                                </div>
+                                <div class="text-sm text-gray-500">
+                                    @StarbucksMx
+                                </div>
+                            </div>
+                        </div>
+                    </button>
             </div>
-
-
+        </div>
         </main>
         <aside>
 
         </aside>
 
         <footer>
-            l lw
+            &copy; Derechos reservados
         </footer>
     </div>
 

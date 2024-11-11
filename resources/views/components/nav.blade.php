@@ -7,7 +7,7 @@
     <style>
         :root {
             --notification: #0349B4;
-            --nav-bg: #EFF2F5;
+            --nav-bg: #ffffff;
             --border-lighter: #0D1117;
             --border-darker: #454C54;
             --github-button-hover: #8B949E;
@@ -300,7 +300,8 @@
                         d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z">
                     </path>
                 </svg> --}}
-                <img src="{{asset('images/burgerking.png')}}" alt="Perfil" style="border-radius: 50%; object-fit: cover; width: 55px; height: 55px;">
+                <img src="{{ asset('images/logo.png') }}" alt="Perfil"
+                    style="border-radius: 50%; object-fit: cover; width: 55px; height: 55px;">
             </a>
             <a href="#" class="page__title">
                 Profile
@@ -326,20 +327,20 @@
                 <span class="notification-mark"></span>
                 <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16"
                     data-view-component="true" class="octicon octicon-inbox color-fg-muted mr-0">
-                    <path
-                        d="M2.8 2.06A1.75 1.75 0 0 1 4.41 1h7.18c.7 0 1.333.417 1.61 1.06l2.74 6.395c.04.093.06.194.06.295v4.5A1.75 1.75 0 0 1 14.25 15H1.75A1.75 1.75 0 0 1 0 13.25v-4.5c0-.101.02-.202.06-.295Zm1.61.44a.25.25 0 0 0-.23.152L1.887 8H4.75a.75.75 0 0 1 .6.3L6.625 10h2.75l1.275-1.7a.75.75 0 0 1 .6-.3h2.863L11.82 2.652a.25.25 0 0 0-.23-.152Zm10.09 7h-2.875l-1.275 1.7a.75.75 0 0 1-.6.3h-3.5a.75.75 0 0 1-.6-.3L4.375 9.5H1.5v3.75c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25Z">
+                    <path>
+                        
                     </path>
                 </svg>
             </button>
-            <img id="avatar-navbar" class="avatar-profile" src="assets/profile.jpg" alt="Profile">
+            <img id="avatar-navbar" class="avatar-profile" src="{{ asset('images/burgerking.png') }}" alt="Profile">
         </div>
     </nav>
     <div class="navigation__menu none">
         <div class="avatar-wrapper">
-            <img class="avatar-profile" src="assets/profile.jpg" alt="Profile">
+            <img class="avatar-profile" src="{{ asset('images/burgerking.png') }}" alt="Profile">
             <div class="avatar-name-wrapper">
-                <div class="avatar-name-alias">a7v8x</div>
-                <div class="avatar-name">David Mraz</div>
+                <div class="avatar-name-alias">Burger King</div>
+                <div class="avatar-name">Perfil Empresarial</div>
             </div>
             <div class="close-button">
                 <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16"
