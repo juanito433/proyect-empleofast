@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function () {
+    return view('landing.index');
+});
+
+
+
 Route::get('selection/', function () {
     return view('selection_register');
 });
@@ -29,3 +35,4 @@ Route::get('app/', function () {
 Route::get('app/perfil', function () {
     return view('layouts.perfil');
 });
+
