@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.contenedor {
+    display: grid;
+    grid-template-columns: 1fr 2fr ; 
+    gap: 10px; 
+}
+
+.columna {
+    min-width: 500px;
+}
+
+.pequena {
+    display: block; 
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+@media (max-width: 900px) {
+    .pequena {
+        display: none; 
+    }
+
+    .contenedor {
+        grid-template-columns: 1fr; 
+    }
+}
