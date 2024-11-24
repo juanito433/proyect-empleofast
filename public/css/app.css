@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Barra de navegacion */
+.tamaño{
+    width: 450px;
+}
+.navbar {
+    padding: 2rem;
+}
+
+.navbar-collapse {
+    align-items: center;
+    justify-content: space-between;
+
+}
+

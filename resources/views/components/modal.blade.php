@@ -13,7 +13,6 @@
 </head>
 
 <body>
-
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -29,7 +28,6 @@
                     o o p
                     kds owkd dsk sdk
                     w
-
                     a fj sldlk lsk nl flf l sdvl, nwodndohdmqodha ncqbfnfow nfpwbfinfownw vo o ow w cow colñw o solnvow
                     vvonvo d kd ke ownc
                     w.

@@ -1,5 +1,3 @@
-
-
 html {
     height: 100%;
 }
@@ -7,7 +5,7 @@ html {
 
 .grid {
     display: grid;
-    grid-template-rows: 5rem auto 5rem;
+    grid-template-rows:  5rem auto 5rem;
     grid-template-columns: 23% auto 23%;
 }
 

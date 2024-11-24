@@ -1,21 +1,38 @@
+<link rel="stylesheet" href="{{asset('css/trabajos.css')}}">
+</style>
 <div class="container shadow-md">
-
-    @for ($i = 0; $i < 5; $i++)
-        <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl" style="margin:10PX ;">
-            <div class="md:flex">
-                <div class="md:shrink-0">
-                    <img class="h-48 w-full object-cover md:h-full md:w-48" src="{{asset('images/images.png')}}"
-                        alt="Modern building architecture">
+    @for ($i = 0; $i < 10; $i++)
+        <div class="card">
+            <div class="img">
+                <img src="{{ asset('images/burgerking.png') }}">
+            </div>
+            <div class="top-text">
+                <div class="name">
+                    Nombre del trabajo
                 </div>
-                <div class="p-8">
-                    <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Company retreats</div>
-                    <a href="#"
-                        class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Incredible
-                        accommodation for your team</a>
-                    <p class="mt-2 text-slate-500">Looking to take your team away on a retreat to enjoy awesome food and
-                        take in some sunshine? We have a list of places to do just that.</p>
+                <p>
+                    Empresa
+                </p>
+            </div>
+            <div class="bottom-text">
+                <div class="text">
+                    SObre que trata el trabajo
+                </div>
+                <div class="text">
+                    Tiempo de trabajo
+                </div>
+                <div class="text">
+                    Habilidades necesarias o requetriadas para el trabajo
+                    <ul><li>Saber algo</li>
+                    <li>Saber algo</li>
+                    <li>Saber algo</li>
+                    <li>Saber algo</li></ul>
+                </div>
+                <div class="btn">
+                    <a href="#">Read more</a>
                 </div>
             </div>
         </div>
     @endfor
+
 </div>
