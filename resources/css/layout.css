@@ -6,14 +6,11 @@
 html {
     height: 100%;
 }
-header{
-    display: flex !important;
-}
 
 
 .grid {
     display: grid;
-    grid-template-rows: 6rem 5rem auto 5rem;
+    grid-template-rows:  5rem auto 5rem;
     grid-template-columns: 23% auto 23%;
 }
 
@@ -22,7 +19,7 @@ header{
 @media (max-width: 900px) {
     .grid {
         grid-template-rows:
-            6rem 6rem 6rem auto 6rem 6rem;
+            6rem  6rem auto 6rem ;
         grid-template-columns: 1fr;
     }
 
@@ -41,15 +38,11 @@ header{
     }
 }
 
-
-
-nav,
-header {
+nav {
     background-color: #bee0b2;
+    min-height: 90px;
+
     grid-column: 1 / 4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
 footer{

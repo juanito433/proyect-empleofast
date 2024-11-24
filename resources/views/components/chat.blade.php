@@ -8,7 +8,7 @@
     <style>
         /* Contenedor del chat */
         .chat-container {
-            width: 300px;
+            width: auto;
             height: 400px;
             background-color: #fff;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
