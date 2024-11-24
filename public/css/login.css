@@ -1,0 +1,76 @@
+        /* Estilos para el modal */
+        .modal-backdrop {
+            position: relative !important;
+        }
+
+        .modal-content {
+            border-radius: 10px;
+            /* Bordes redondeados */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            /* Sombra suave */
+        }
+
+        .modal-header {
+            border-bottom: none;
+            /* Sin borde inferior */
+            background-color: #007bff;
+            /* Color de fondo del encabezado */
+            color: white;
+            /* Color del texto */
+            border-top-left-radius: 10px;
+            /* Bordes redondeados */
+            border-top-right-radius: 10px;
+            /* Bordes redondeados */
+        }
+
+        .modal-body {
+            padding: 2rem;
+            /* Espaciado interno */
+
+        }
+
+        .form-control {
+            border-radius: 5px;
+            /* Bordes redondeados para los campos de entrada */
+            box-shadow: none;
+            /* Sin sombra en los campos de entrada */
+            border: 1px solid #ced4da;
+            /* Borde estándar */
+        }
+
+        .form-control:focus {
+            border-color: #007bff;
+            /* Color del borde al enfocar */
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+            /* Sombra al enfocar */
+        }
+
+        .btn-success {
+            width: 80%;
+            border-radius: 5px;
+        }
+
+        .modal-footer {
+            border-top: none;
+            /* Sin borde superior */
+            justify-content: center;
+            /* Centrar contenido */
+        }
+
+        .register-link {
+            display: block;
+            /* Hacer que el enlace ocupe toda la línea */
+            text-align: center;
+            /* Centrar texto */
+            margin-top: 1rem;
+            /* Espaciado superior */
+            color: #007bff;
+            /* Color del enlace */
+            text-decoration: none;
+            /* Sin subrayado */
+        }
+
+        .register-link:hover {
+            text-decoration: underline;
+            /* Subrayar al pasar el mouse */
+        }

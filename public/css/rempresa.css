@@ -1,0 +1,120 @@
+body {
+    background-color: #f8f9fa;
+    /* Color de fondo suave */
+    display: flex;
+    /* Usar flexbox */
+    justify-content: center;
+    /* Centrar horizontalmente */
+    align-items: center;
+    /* Centrar verticalmente */
+    height: 100vh;
+    /* Altura completa de la ventana */
+    margin: 0;
+    /* Sin margen */
+    font-family: Arial, sans-serif;
+    /* Fuente */
+}
+
+.register-container {
+    background-color: white;
+    /* Fondo blanco para el formulario */
+    border-radius: 10px;
+    /* Bordes redondeados */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    /* Sombra suave */
+    padding: 2rem;
+    /* Espaciado interno */
+    width: 400px;
+    /* Ancho del formulario */
+}
+
+h2 {
+    margin-bottom: 1.5rem;
+    /* Espaciado inferior */
+    text-align: center;
+    /* Centrar el título */
+    color: #333;
+    /* Color del texto */
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    /* Espaciado inferior entre campos */
+}
+
+label {
+    display: block;
+    /* Hacer que la etiqueta ocupe toda la línea */
+    margin-bottom: 0.5rem;
+    /* Espaciado inferior de la etiqueta */
+    color: #555;
+    /* Color de la etiqueta */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+    width: 100%;
+    /* Ancho completo */
+    padding: 0.5rem;
+    /* Espaciado interno */
+    border: 1px solid #ccc;
+    /* Borde gris claro */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    box-sizing: border-box;
+    /* Incluir padding y borde en el ancho total */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+select:focus {
+    border-color: #007bff;
+    /* Color del borde al enfocar */
+    outline: none;
+    /* Sin contorno */
+}
+
+button {
+    width: 100%;
+    /* Botón ocupa todo el ancho */
+    padding: 0.5rem;
+    /* Espaciado interno */
+    background-color: #007bff;
+    /* Color de fondo del botón */
+    color: white;
+    /* Color del texto del botón */
+    border: none;
+    /* Sin borde */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    cursor: pointer;
+    /* Cambiar cursor al pasar el mouse */
+    font-size: 16px;
+    /* Tamaño de fuente */
+}
+
+button:hover {
+    background-color: #0056b3;
+    /* Color de fondo al pasar el mouse */
+}
+
+.login-link {
+    display: block;
+    /* Hacer que el enlace ocupe toda la línea */
+    text-align: center;
+    /* Centrar texto */
+    margin-top: 1rem;
+    /* Espaciado superior */
+    color: #007bff;
+    /* Color del enlace */
+    text-decoration: none;
+    /* Sin subrayado */
+}
+
+.login-link:hover {
+    text-decoration: underline;
+    /* Subrayar al pasar el mouse */
+}
