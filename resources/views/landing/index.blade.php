@@ -3,17 +3,15 @@
 
 <head>
     <meta charset="utf-8" />
-
     <!-- Title Tag -->
     <title>November</title>
     <!-- <<Mobile Viewport Code>> -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- <<Attched Stylesheets>> -->
+    <link rel="stylesheet" href="{{asset('css/media.css')}}">
+    <link rel="stylesheet" href="{{asset('theme.css')}}">
+    <link rel="stylesheet" href="{{asset('css/font-awesome.min.css.css')}}">
 
-    @vite(['resources/css/media.css'])
-    @vite(['resources/css/theme.css'])
-    @vite(['resources/css/font-awesome.min.css'])
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,600italic,400italic,800,700'
         rel='stylesheet' type='text/css'>

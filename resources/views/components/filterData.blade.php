@@ -8,7 +8,7 @@
 </head>
 
 <body>
-<div class="modal fade" id="filtersModal" tabindex="-1" role="dialog" aria-labelledby="filtersModalLabel" aria-hidden="true">
+    <div class="modal fade" id="filtersModal" tabindex="-1" role="dialog" aria-labelledby="filtersModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document"> <!-- modal-lg para un modal más grande -->
             <div class="modal-content">
                 <div class="modal-header">
@@ -60,32 +60,36 @@
 
 <style>
     /* Estilos personalizados para el modal */
-.modal-lg {
-    max-width: 50%; /* Aumenta el ancho máximo del modal */
-}
-
-.modal-header {
-    background-color: #007bff; /* Cambia el color de fondo del encabezado */
-    color: white; /* Cambia el color del texto del encabezado */
-}
-
-.modal-body {
-    padding: 20px; /* Aumenta el padding del cuerpo del modal */
-}
-
-.filter-section {
-    margin-bottom: 20px; /* Espaciado entre secciones de filtros */
-}
-
-.filter-section h6 {
-    margin-bottom: 10px; /* Espaciado debajo del título de la sección */
-    font-weight: bold; /* Negrita para los títulos de las secciones */
-}
-
-.date-range {
-    display: flex; /* Usar flexbox para alinear los campos de fecha */
-    gap: 10px; /* Espacio entre los campos de fecha */
-}
-
+    .modal-lg {
+        max-width: 50%;
+        /* Aumenta el ancho máximo del modal */
+    }
+    .modal-header {
+        background-color: #007bff;
+        /* Cambia el color de fondo del encabezado */
+        color: white;
+        /* Cambia el color del texto del encabezado */
+    }
+    .modal-body {
+        padding: 20px;
+        /* Aumenta el padding del cuerpo del modal */
+    }
+    .filter-section {
+        margin-bottom: 20px;
+        /* Espaciado entre secciones de filtros */
+    }
+    .filter-section h6 {
+        margin-bottom: 10px;
+        /* Espaciado debajo del título de la sección */
+        font-weight: bold;
+        /* Negrita para los títulos de las secciones */
+    }
+    .date-range {
+        display: flex;
+        /* Usar flexbox para alinear los campos de fecha */
+        gap: 10px;
+        /* Espacio entre los campos de fecha */
+    }
 </style>
+
 </html>

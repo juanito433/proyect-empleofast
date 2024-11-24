@@ -1,4 +1,3 @@
-@vite(['resources/css/perfil.css'])
 <!DOCTYPE html>
 <html lang="es">
 
@@ -8,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{asset('css/perfil.css')}}">
 </head>
 
 <body>
@@ -209,8 +208,6 @@
         </div>
     </nav>
     <main class="content" id="content">
-
-
         <div class="info1">
             <img class="float-left" src="{{ asset('images/images.png') }}" alt="">
             <h1 class="font-mono nombre_empresa">Starbucks</h1>
@@ -232,7 +229,6 @@
             <div class="flex flex-row ">
                 <div class="basis-1/3 hover:basis-1/2 margen shadow-2xl">
                     <h5 class="font-sans">Misión</h5>
-    
                     <p class="font-sans">esta empresa blblalablabl bl bl b bl b lb l bl blb lb l bl b lb ll
                         bllblblbllbblbl
                         bl lb lb lb lb
@@ -246,11 +242,9 @@
                         fk
                         edxf edo eonvoenvoe ov oe dx
                     </p>
-    
                 </div>
                 <div class="basis-1/3 hover:basis-1/2 margen shadow-2xl">
                     <h5 class="font-sans">Visión</h5>
-    
                     <p class="font-sans">esta empresa blblalablabl bl bl b bl b lb l bl blb lb l bl b lb ll bllblblbllbblbl
                         bl lb lb lb lb
                         lblb lbbbllblblb ll lb l bbl blbllblb bl blblblbl b lbl lb lblbblblbl bl bllblblb lbblblbl lbl bbl
@@ -262,65 +256,63 @@
                 </div>
                 <div class="basis-1/3 hover:basis-1/2 margen shadow-2xl">
                     <h5 class="font-sans">Valores</h5>
-    
                     <ul class="list-none hover:list-disc">
                         <li>Respeto</li>
                         <li>Responsabilidad</li>
                         <li>Entusiasmo</li>
                         <li>Compromiso</li>
                     </ul>
-    
                 </div>
             </div>
         </div>
         <div class="sociales margen shadow-lg">
-        <h3 class="font-mono italic">Redes Sociales</h3>
-        <button>
-            <div class="flex items-center bg-white p-4 rounded-full shadow-2xl">
-                <img alt="Person wearing a hat and sunglasses, looking to the side" class="w-16 h-16 rounded-full"
-                    height="64"
-                    src="{{ asset('images/07f0d7b69ef071571e4ada2f4d6a053a-icono-de-instagram-colorido.webp') }}"
-                    width="64" />
-                <div class="ml-4">
-                    <div class="text-lg font-semibold text-gray-900">
-                        Instagram
-                    </div>
-                    <div class="text-sm text-gray-500">
-                        @StarbucksMx
-                    </div>
-                </div>
-            </div>
-        </button>
-        <button>
-            <div class="flex items-center bg-white p-4 rounded-full shadow-2xl">
-                <img alt="Person wearing a hat and sunglasses, looking to the side" class="w-16 h-16 rounded-full"
-                    height="64" src="{{ asset('images/facebook-logo-facebook-icon-transparent-free-png.webp') }}"
-                    width="64" />
-                <div class="ml-4">
-                    <div class="text-lg font-semibold text-gray-900">
-                        Facebook
-                    </div>
-                    <div class="text-sm text-gray-500">
-                        @StarbucksMx
+            <h3 class="font-mono italic">Redes Sociales</h3>
+            <button>
+                <div class="flex items-center bg-white p-4 rounded-full shadow-2xl">
+                    <img alt="Person wearing a hat and sunglasses, looking to the side" class="w-16 h-16 rounded-full"
+                        height="64"
+                        src="{{ asset('images/07f0d7b69ef071571e4ada2f4d6a053a-icono-de-instagram-colorido.webp') }}"
+                        width="64" />
+                    <div class="ml-4">
+                        <div class="text-lg font-semibold text-gray-900">
+                            Instagram
+                        </div>
+                        <div class="text-sm text-gray-500">
+                            @StarbucksMx
+                        </div>
                     </div>
                 </div>
-            </div>
-        </button>
-        <button>
-            <div class="flex items-center bg-white p-4 rounded-full shadow-2xl">
-                <img alt="Person wearing a hat and sunglasses, looking to the side" class="w-16 h-16 rounded-full"
-                    height="64" src="{{ asset('images/8e72f7331b652b842b0c271ab144d332.png') }}" width="64" />
-                <div class="ml-4">
-                    <div class="text-lg font-semibold text-gray-900">
-                        X
-                    </div>
-                    <div class="text-sm text-gray-500">
-                        @StarbucksMx
+            </button>
+            <button>
+                <div class="flex items-center bg-white p-4 rounded-full shadow-2xl">
+                    <img alt="Person wearing a hat and sunglasses, looking to the side" class="w-16 h-16 rounded-full"
+                        height="64" src="{{ asset('images/facebook-logo-facebook-icon-transparent-free-png.webp') }}"
+                        width="64" />
+                    <div class="ml-4">
+                        <div class="text-lg font-semibold text-gray-900">
+                            Facebook
+                        </div>
+                        <div class="text-sm text-gray-500">
+                            @StarbucksMx
+                        </div>
                     </div>
                 </div>
-            </div>
-        </button>
-    </div>
+            </button>
+            <button>
+                <div class="flex items-center bg-white p-4 rounded-full shadow-2xl">
+                    <img alt="Person wearing a hat and sunglasses, looking to the side" class="w-16 h-16 rounded-full"
+                        height="64" src="{{ asset('images/8e72f7331b652b842b0c271ab144d332.png') }}" width="64" />
+                    <div class="ml-4">
+                        <div class="text-lg font-semibold text-gray-900">
+                            X
+                        </div>
+                        <div class="text-sm text-gray-500">
+                            @StarbucksMx
+                        </div>
+                    </div>
+                </div>
+            </button>
+        </div>
 
 
 
@@ -329,21 +321,15 @@
     </div>
     <script>
         const expand_btn = document.querySelector(".expand-btn");
-
         let activeIndex;
-
         expand_btn.addEventListener("click", () => {
             document.body.classList.toggle("collapsed");
         });
-
         const current = window.location.href;
-
         const allLinks = document.querySelectorAll(".sidebar-links a");
-
         allLinks.forEach((elem) => {
             elem.addEventListener("click", function() {
                 const hrefLinkClick = elem.href;
-
                 allLinks.forEach((link) => {
                     if (link.href == hrefLinkClick) {
                         link.classList.add("active");
@@ -353,9 +339,7 @@
                 });
             });
         });
-
         const searchInput = document.querySelector(".search__wrapper input");
-
         searchInput.addEventListener("focus", (e) => {
             document.body.classList.remove("collapsed");
         });

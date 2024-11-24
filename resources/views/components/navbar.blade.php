@@ -1,6 +1,5 @@
-
+<link rel="stylesheet" href="{{asset('css/style.css')}}">
 <nav class="navbar" style="position: sticky; top: 0; z-index: 1;">
-
     <div class="container-fluid justify-content-center">
         <img src="{{ asset('/images/logo.png') }}" alt="logo" width="160px">
 

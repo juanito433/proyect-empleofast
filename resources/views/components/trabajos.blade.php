@@ -1,6 +1,5 @@
-@vite(['resources/css/trabajos.css'])
-<link rel="stylesheet" href="{{ asset('css/trabajos.css') }}">
-
+<link rel="stylesheet" href="{{asset('css/trabajos.css')}}">
+</style>
 <div class="container shadow-md">
     @for ($i = 0; $i < 10; $i++)
         <div class="card">

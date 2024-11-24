@@ -34,6 +34,9 @@ Route::get('selection/candidato', function () {
 Route::get('app/', function () {
     return view('welcome');
 });
+Route::get('trabajos/', function () {
+    return view('empleos');
+});
 
 Route::get('app/perfil', function () {
     return view('layouts.perfil');

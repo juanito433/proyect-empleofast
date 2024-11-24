@@ -1,7 +1,3 @@
-@vite(['resources/css/layout_perfile.css'])
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,17 +11,14 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
-
-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('css/layout_perfile.css')}}">
 </head>
 
 <body>
     <div class="layout">
         <x-nav />
-
         <aside></aside>
-
         <main class="rounded-lg shadow-md" style="margin-top: 70px; margin-bottom: 20px">
             <!-- Cover Photo -->
             <div class="relative">
@@ -74,9 +67,7 @@
                         Editar perfil
                     </button>
                 </div>
-            
-            <br>
-
+                <br>
                 <div>
                     <h2 class="text-2xl
                     font-bold mx-4">
@@ -91,57 +82,57 @@
                         que
                         también pertenece </p>
                 </div>
-                
-            <br>
-            <h2 class="text-2xl font-bold mx-4">Redes Sociales</h3>
-            <div class="container">
-                
-                    <button class="margen">
-                        <div class="flex items-center bg-white p-2 rounded-full shadow-2xl" style="width: 250px;">
-                            <img alt="insta" class="rounded-full"
-                                src="{{ asset('images/07f0d7b69ef071571e4ada2f4d6a053a-icono-de-instagram-colorido.webp') }}"
-                                width="70px" />
-                            <div class="ml-4">
-                                <div class="text-lg font-semibold text-gray-900">
-                                    Instagram
-                                </div>
-                                <div class="text-sm text-gray-500">
-                                    @StarbucksMx
-                                </div>
-                            </div>
-                        </div>
-                    </button>
-                    <button class="margen">
-                        <div class="flex items-center bg-white p-2 rounded-full shadow-2xl" style="width: 250px;">
-                            <img alt="facebook" class=" rounded-full"
-                                src="{{ asset('images/facebook-logo-facebook-icon-transparent-free-png.webp') }}"
-                                width="70px" />
-                            <div class="ml-4">
-                                <div class="text-lg font-semibold text-gray-900">
-                                    Facebook
-                                </div>
-                                <div class="text-sm text-gray-500">
-                                    @StarbucksMx
+
+                <br>
+                <h2 class="text-2xl font-bold mx-4">Redes Sociales</h3>
+                    <div class="container">
+
+                        <button class="margen">
+                            <div class="flex items-center bg-white p-2 rounded-full shadow-2xl" style="width: 250px;">
+                                <img alt="insta" class="rounded-full"
+                                    src="{{ asset('images/07f0d7b69ef071571e4ada2f4d6a053a-icono-de-instagram-colorido.webp') }}"
+                                    width="70px" />
+                                <div class="ml-4">
+                                    <div class="text-lg font-semibold text-gray-900">
+                                        Instagram
+                                    </div>
+                                    <div class="text-sm text-gray-500">
+                                        @StarbucksMx
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </button>
-                    <button class="margen">
-                        <div class="flex items-center bg-white p-2 rounded-full shadow-2xl" style="width: 250px;">
-                            <img alt="x" class="rounded-full"
-                                src="{{ asset('images/8e72f7331b652b842b0c271ab144d332.png') }}" width="70px" />
-                            <div class="ml-4">
-                                <div class="text-lg font-semibold text-gray-900">
-                                    X
-                                </div>
-                                <div class="text-sm text-gray-500">
-                                    @StarbucksMx
+                        </button>
+                        <button class="margen">
+                            <div class="flex items-center bg-white p-2 rounded-full shadow-2xl" style="width: 250px;">
+                                <img alt="facebook" class=" rounded-full"
+                                    src="{{ asset('images/facebook-logo-facebook-icon-transparent-free-png.webp') }}"
+                                    width="70px" />
+                                <div class="ml-4">
+                                    <div class="text-lg font-semibold text-gray-900">
+                                        Facebook
+                                    </div>
+                                    <div class="text-sm text-gray-500">
+                                        @StarbucksMx
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </button>
+                        </button>
+                        <button class="margen">
+                            <div class="flex items-center bg-white p-2 rounded-full shadow-2xl" style="width: 250px;">
+                                <img alt="x" class="rounded-full"
+                                    src="{{ asset('images/8e72f7331b652b842b0c271ab144d332.png') }}" width="70px" />
+                                <div class="ml-4">
+                                    <div class="text-lg font-semibold text-gray-900">
+                                        X
+                                    </div>
+                                    <div class="text-sm text-gray-500">
+                                        @StarbucksMx
+                                    </div>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
             </div>
-        </div>
         </main>
         <aside>
 
