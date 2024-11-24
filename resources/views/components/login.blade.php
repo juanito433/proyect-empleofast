@@ -14,7 +14,6 @@
 </head>
 
 <body>
-    @vite(['resources/css/login.css'])
     <body>
         <!-- Botón para abrir el modal -->
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">
