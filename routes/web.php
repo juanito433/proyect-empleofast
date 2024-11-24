@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', function () {
-    return view('welcome');
+    return view('layouts.app');
 });
 
 Route::get('selection/', function () {
@@ -26,7 +26,7 @@ Route::get('selection/candidato', function () {
     return view('register_candidato');
 });
 Route::get('app/', function () {
-    return view('layouts.app');
+    return view('welcome');
 });
 
 Route::get('app/perfil', function () {
