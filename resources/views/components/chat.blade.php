@@ -24,7 +24,7 @@
 
         /* Cabecera del chat */
         .chat-header {
-            background-color: #bee0b2;
+            background-color: #293241;
             color: white;
             padding: 15px;
             text-align: center;
@@ -53,7 +53,7 @@
 
         .user-message {
             align-self: flex-end;
-            background-color: #dcf8c6;
+            background-color: #98c1d9;
         }
 
         .bot-message {
@@ -77,7 +77,7 @@
         }
 
         .send-button {
-            background-color: #bee0b2;
+            background-color: #293241;
             color: white;
             border: none;
             padding: 8px 12px;
