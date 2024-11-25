@@ -12,8 +12,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/', function () {
-    return view('layouts.app');
+Route::get('app/', function () {
+    return view('app');
 });
 
 Route::get('/', function () {
@@ -31,14 +31,12 @@ Route::get('selection/empresa', function () {
 Route::get('selection/candidato', function () {
     return view('register_candidato');
 });
-Route::get('app/', function () {
-    return view('welcome');
-});
+
 Route::get('trabajos/', function () {
     return view('empleos');
 });
 
 Route::get('app/perfil', function () {
-    return view('layouts.perfil');
+    return view('perfil');
 });
 
