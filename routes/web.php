@@ -42,7 +42,7 @@ Route::get('trabajos/', function () {
 });
 
 Route::get('app/perfil', function () {
-    return view('perfil');
+    return view('app/index');
 });
 
 //Prueba
