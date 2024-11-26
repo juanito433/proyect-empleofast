@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\candidateController;
 use App\Models\company;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\LoginCandidateController;
 use App\Http\Controllers\LoginCompanyController;
 
 /*
@@ -32,7 +34,7 @@ Route::get('selection/empresa', function () {
     return view('empresa.registro.register_empresa');
 });
 Route::get('selection/candidato', function () {
-    return view('register_candidato');
+    return view('candidato.registro.register_candidato');
 });
 
 Route::get('trabajos/', function () {
@@ -44,6 +46,13 @@ Route::get('app/perfil', function () {
 });
 
 //Prueba
+
+//company
 Route::get('empresas/', [CompanyController::class, 'empresa']);
 Route::get('empresas/register', [LoginCompanyController::class, 'register']);
 Route::post('empresas/register', [LoginCompanyController::class, 'saveregister'])->name('empresas.register');
+
+//Candidate
+Route::get('candidatos/', [candidateController::class, 'candidatos']);
+Route::get('candidatos/register', [LoginCandidateController::class, 'register']);
+Route::post('candidatos/register', [LoginCandidateController::class, 'saveregister'])->name('candidatos.register');
