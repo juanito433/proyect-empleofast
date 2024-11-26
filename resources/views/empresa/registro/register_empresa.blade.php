@@ -1,50 +1,200 @@
 <!DOCTYPE html>
+<!-- Coding By CodingNepal - codingnepalweb.com -->
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{asset('css/rempresa.css')}}">
-    <title>Registro</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EmpleoFast</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 
+<style>
+    /* Import Google font - Poppins */
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins",
+            sans-serif;
+    }
+
+    body {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f0faff;
+    }
+
+    .wrapper {
+        position: relative;
+        max-width: 470px;
+        width: 100%;
+        border-radius: 12px;
+        padding: 20px 30px 120px;
+        background: #4070f4;
+        box-shadow: 0 5px 10px rgba(0,
+                0,
+                0,
+                0.1);
+        overflow: hidden;
+    }
+
+    .form.login {
+        position: absolute;
+        left: 50%;
+        bottom: -86%;
+        transform: translateX(-50%);
+        width: calc(100% + 220px);
+        padding: 20px 140px;
+        border-radius: 50%;
+        height: 100%;
+        background: #fff;
+        transition: all 0.6s ease;
+    }
+
+    .wrapper.active .form.login {
+        bottom: -15%;
+        border-radius: 35%;
+        box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form header {
+        font-size: 30px;
+        text-align: center;
+        color: #fff;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    .form.login header {
+        color: #333;
+        opacity: 0.6;
+    }
+
+    .wrapper.active .form.login header {
+        opacity: 1;
+    }
+
+    .wrapper.active .signup header {
+        opacity: 0.6;
+    }
+
+    .wrapper form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin-top: 40px;
+    }
+
+    form input {
+        height: 60px;
+        outline: none;
+        border: none;
+        padding: 0 15px;
+        font-size: 16px;
+        font-weight: 400;
+        color: #333;
+        border-radius: 8px;
+        background: #fff;
+    }
+
+    .form.login input {
+        border: 1px solid #aaa;
+    }
+
+    .form.login input:focus {
+        box-shadow: 0 1px 0 #ddd;
+    }
+
+    form .checkbox {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .checkbox input[type="checkbox"] {
+        height: 16px;
+        width: 16px;
+        accent-color: #fff;
+        cursor: pointer;
+    }
+
+    form .checkbox label {
+        cursor: pointer;
+        color: #fff;
+    }
+
+    form a {
+        color: #333;
+        text-decoration: none;
+    }
+
+    form a:hover {
+        text-decoration: underline;
+    }
+
+    form input[type="submit"] {
+        margin-top: 15px;
+        padding: none;
+        font-size: 18px;
+        font-weight: 500;
+        cursor: pointer;
+    }
+
+    .form.login input[type="submit"] {
+        background: #4070f4;
+        color: #fff;
+        border: none;
+    }
+</style>
+
 <body>
-    <div class="register-container">
-        <h2>Registro de Empresa</h2>
-        <form id="registerForm" method="POST" action="{{ route('empresas.register') }}">
-            @csrf
-            <div class="form-group">
-                <label for="name">Nombre de la Empresa</label>
-                <input type="text" id="name" name="name" placeholder="Introduce el nombre de la empresa" required>
-            </div>
-            <div class="form-group">
-                <label for="industry">Tipo de Industria</label>
-                <select id="industry" name="industry" required>
-                    <option value="" disabled selected>Selecciona el tipo de industria</option>
-                    <option value="tecnologia">Tecnología</option>
-                    <option value="salud">Salud</option>
-                    <option value="finanzas">Finanzas</option>
-                    <option value="educacion">Educación</option>
-                    <option value="comercio">Comercio</option>
-                    <option value="otro">Otro</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="location">Ubicación</label>
-                <input type="text" id="location" name="location" placeholder="Introduce tu dirección" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Correo Electrónico</label>
-                <input type="email" id="email" name="email" placeholder="Introduce tu correo electrónico" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Contraseña</label>
-                <input type="password" id="password" name="password" placeholder="Introduce tu contraseña" required>
-            </div>
-            <button type="submit">Registrar</button>
-        </form>
-        
-    </div>
+    <section class="wrapper">
+        <div class="form signup">
+            <header>Signup</header>
+            <form method="POST" action="{{ route('empresas.register') }}">
+                @csrf
+                <input type="text" name="name" id="name" placeholder="Name company" required />
+                <input type="text" name="industry" id="industry" placeholder="Industry" required />
+                <input type="text" name="location" id="location" placeholder="location" required />
+                <input type="email" name="email" id="email" placeholder="Email" required />
+                <input type="password" name="password" id="password" placeholder="Password" required />
+                <div class="checkbox">
+                    <input type="checkbox" id="signupCheck" />
+                    <label for="signupCheck">I accept all terms & conditions</label>
+                </div>
+                <input type="submit" value="Signup" />
+            </form>
+        </div>
+
+        <div class="form login">
+            <header>Login</header>
+            <form action="#">
+                <input type="text" placeholder="Email address" required />
+                <input type="password" placeholder="Password" required />
+                <a href="#">Forgot password?</a>
+                <input type="submit" value="Login" />
+            </form>
+        </div>
+
+        <script>
+            const wrapper = document.querySelector(".wrapper"),
+                signupHeader = document.querySelector(".signup header"),
+                loginHeader = document.querySelector(".login header");
+
+            loginHeader.addEventListener("click", () => {
+                wrapper.classList.add("active");
+            });
+            signupHeader.addEventListener("click", () => {
+                wrapper.classList.remove("active");
+            });
+        </script>
+    </section>
 </body>
 
 </html>
