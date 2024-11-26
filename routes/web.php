@@ -1,6 +1,9 @@
 <?php
 
+use App\Models\company;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\LoginCompanyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +29,7 @@ Route::get('selection/', function () {
     return view('selection_register');
 });
 Route::get('selection/empresa', function () {
-    return view('register_empresa');
+    return view('empresa.registro.register_empresa');
 });
 Route::get('selection/candidato', function () {
     return view('register_candidato');
@@ -40,3 +43,7 @@ Route::get('app/perfil', function () {
     return view('perfil');
 });
 
+//Prueba
+Route::get('empresas/', [CompanyController::class, 'empresa']);
+Route::get('empresas/register', [LoginCompanyController::class, 'register']);
+Route::post('empresas/register', [LoginCompanyController::class, 'saveregister'])->name('empresas.register');
