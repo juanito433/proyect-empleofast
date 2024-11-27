@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\company;
+use App\Models\job;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -13,16 +15,19 @@ class JobFactory extends Factory
      * Define the model's default state.
      *
      * @return array<string, mixed>
+     * 
      */
+    protected $model = job::class;
+
     public function definition(): array
     {
         return [
-            'title'=>fake()->name(),
-            'description'=>fake()->sentence(8),
-            'id_company'=>fake()->numberBetween(10,50),
-            'publication_date'=>fake()->dateTime(),
-            'type_jobs'=>fake()->sentence(20),
-            'category'=>fake()->sentence(20),
+            'title' => $this->faker->jobTitle,
+            'description' => fake()->sentence(8),
+            'id_company' => company::inRandomOrder()->first()?->id ?? null, // Selecciona un ID de empresa aleatorio
+            'publication_date' => fake()->dateTime(),
+            'type_jobs' => fake()->sentence(20),
+            'category' => fake()->sentence(20),
 
         ];
     }

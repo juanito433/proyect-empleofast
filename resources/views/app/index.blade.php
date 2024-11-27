@@ -177,7 +177,7 @@
                                 alt="Channel Logo" class="icon">
                             <div class="video-details">
                                 <h2 class="title">{{$job->title}}</h2>
-                                <p class="channel-name">{{$job->id_company}}</p>
+                                <p class="channel-name">{{$job->company->name ?? 'no hay empresa'}}</p>
                                 <p class="views">{{$job->publication_date}}</p>
                             </div>
                         </div>

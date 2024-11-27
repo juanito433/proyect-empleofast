@@ -21,7 +21,7 @@ class CompanyFactory extends Factory
     public function definition(): array
     {
         return [
-            'name'=> fake()->name(),
+            'name'=> $this->faker->company,
             'industry' => fake()->sentence(15),
             'location' => fake()-> streetAddress(),
             'email' => fake()->Unique()->safeEmail(),

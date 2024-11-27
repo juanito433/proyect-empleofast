@@ -17,4 +17,8 @@ class company extends Model
         'email',
         'password',
     ];
+    public function jobs()
+    {
+        return $this->hasMany(Job::class); // Una empresa tiene muchos empleos
+    }
 }

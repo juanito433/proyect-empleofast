@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('description');
-            $table->integer('id_company');
+            $table->unsignedBigInteger('id_company'); // Llave foránea
+            $table->foreign('id_company')->references('id')->on('companies')->onDelete('cascade');
             $table->dateTime('publication_date');
             $table->string('type_jobs');
             $table->string('category');
