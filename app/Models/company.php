@@ -13,6 +13,7 @@ class company extends Model
         'name',
         'industry',
         'location',
+        'image_url',
         'email',
         'password',
     ];

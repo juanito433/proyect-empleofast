@@ -4,6 +4,7 @@ use App\Http\Controllers\candidateController;
 use App\Models\company;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\jobController;
 use App\Http\Controllers\LoginCandidateController;
 use App\Http\Controllers\LoginCompanyController;
 
@@ -56,3 +57,8 @@ Route::post('empresas/register', [LoginCompanyController::class, 'saveregister']
 Route::get('candidatos/', [candidateController::class, 'candidatos']);
 Route::get('candidatos/register', [LoginCandidateController::class, 'register']);
 Route::post('candidatos/register', [LoginCandidateController::class, 'saveregister'])->name('candidatos.register');
+
+
+//Jobs
+
+Route::get('app/perfil', [jobController::class, 'jobs']);

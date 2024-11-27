@@ -21,6 +21,7 @@
             <th>nombre</th>
             <th>industria</th>
             <th>ubicación</th>
+            <th>img url</th>
             <th>email</th>
             <th>password</th>
 
@@ -39,6 +40,9 @@
                     </td>
                     <td>
                         {{ $company->location }}
+                    </td>
+                    <td>
+                        {{ $company->image_url }}
                     </td>
                     <td>
                         {{ $company->email }}

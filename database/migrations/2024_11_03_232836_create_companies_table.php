@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('industry');
             $table->string('location');
+            $table->string('image_url')->nullable();
             $table->string('email')->unique();
             $table->string('password');
             $table->timestamps();
