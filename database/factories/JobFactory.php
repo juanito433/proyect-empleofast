@@ -28,6 +28,7 @@ class JobFactory extends Factory
             'publication_date' => fake()->dateTime(),
             'type_jobs' => fake()->sentence(20),
             'category' => fake()->sentence(20),
+            'salary' => $this->faker->randomFloat(2, 3000, 15000), // Salario entre 3000 y 15000
 
         ];
     }

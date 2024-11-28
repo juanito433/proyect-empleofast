@@ -20,6 +20,8 @@ return new class extends Migration
             $table->dateTime('publication_date');
             $table->string('type_jobs');
             $table->string('category');
+            $table->decimal('salary', 10, 2); 
+            $table->string('image_url')->nullable();
             $table->timestamps();
         });
     }

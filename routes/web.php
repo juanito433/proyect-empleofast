@@ -53,6 +53,20 @@ Route::get('empresas/', [CompanyController::class, 'empresa']);
 Route::get('empresas/register', [LoginCompanyController::class, 'register']);
 Route::post('empresas/register', [LoginCompanyController::class, 'saveregister'])->name('empresas.register');
 
+//company register jobs
+Route::get('admin/jobs/create', function () {
+    return view('admin.jobs.create');
+});
+
+//Publication jobs
+// Mostrar el formulario para crear trabajos
+Route::get('admin/jobs/create', [jobController::class, 'create'])->name('jobs.create');
+
+// Publicar un trabajo (procesar el formulario)
+Route::post('admin/jobs/publication', [jobController::class, 'publication'])->name('jobs.publication');
+
+
+
 //Candidate
 Route::get('candidatos/', [candidateController::class, 'candidatos']);
 Route::get('candidatos/register', [LoginCandidateController::class, 'register']);
@@ -62,3 +76,4 @@ Route::post('candidatos/register', [LoginCandidateController::class, 'saveregist
 //Jobs
 
 Route::get('app/perfil', [jobController::class, 'jobs']);
+

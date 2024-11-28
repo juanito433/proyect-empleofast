@@ -168,9 +168,11 @@
                     @foreach ($jobs as $job )
                     <a href="#" class="video-card">
                         <div class="thumbnail-container">
-                            <img src="https://i.ytimg.com/vi/AyV954yKRSw/maxresdefault.jpg" alt="Video Thumbnail"
-                                class="thumbnail">
-                            {{-- <p class="duration">1:37:13</p> --}}
+                            @if ($job->image_url)
+                                <img src="{{ Storage::url($job->image_url) }}" alt="Imagen del trabajo" class="thumbnail">
+                                @else
+                                    <span>Imagen no disponible</span>
+                                @endif
                         </div>
                         <div class="video-info">
                             <img src="https://yt3.googleusercontent.com/LrCNrwOMkNOpLKnRl0GgvIQOgo1mR90oXa1pjbuSRIRBT3_FMTYUbdEllsUTxt7Wq8-qPOdd=s160-c-k-c0x00ffffff-no-rj"
@@ -178,7 +180,8 @@
                             <div class="video-details">
                                 <h2 class="title">{{$job->title}}</h2>
                                 <p class="channel-name">{{$job->company->name ?? 'no hay empresa'}}</p>
-                                <p class="views">{{$job->publication_date}}</p>
+                                <p class="views"><strong>Salario:</strong> ${{ number_format($job->salary, 2) }}</p>
+
                             </div>
                         </div>
                     </a>

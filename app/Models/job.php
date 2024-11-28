@@ -12,11 +12,12 @@ class job extends Model
     protected $fillable = [
         'title', 
         'description',
-        'description',
         'id_company',
         'publication_date',
         'type_jobs',
         'category',
+        'salary',
+        'image_url',
 
     ];
 
