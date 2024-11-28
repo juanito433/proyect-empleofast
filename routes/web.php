@@ -82,6 +82,12 @@ Route::get('candidatos/', [candidateController::class, 'candidatos']);
 Route::get('candidatos/register', [LoginCandidateController::class, 'register']);
 Route::post('candidatos/register', [LoginCandidateController::class, 'saveregister'])->name('candidatos.register');
 
+//sesión
+
+Route::post('candidatos/sesion', [LoginCandidateController::class, 'login'])->name('sessioncandidate');
+
+Route::get('/logout', [LoginCandidateController::class, 'logout'])->name('logouts');
+
 
 //Jobs
 

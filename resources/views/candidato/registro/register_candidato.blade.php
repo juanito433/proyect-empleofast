@@ -212,7 +212,7 @@
                 @endif
                 @csrf
 
-                <form action="{{ route('sesion') }}" method="POST">
+                <form action="{{ route('sessioncandidate') }}" method="POST">
                     @csrf
                     <div class="input-field">
                         <input type="email" name="email" placeholder="Email" required>

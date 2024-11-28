@@ -44,6 +44,10 @@ return [
             'driver' => 'session',
             'provider' => 'companies',
         ],
+        'candidate' => [ // Guard para empresas
+            'driver' => 'session',
+            'provider' => 'candidates',
+        ],
     ],
 
     /*
@@ -71,6 +75,10 @@ return [
         'companies' => [
             'driver' => 'eloquent',
             'model' => App\Models\company::class,
+        ],
+        'candidates' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\candidate::class,
         ],
 
         // 'users' => [
