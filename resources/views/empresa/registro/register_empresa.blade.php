@@ -1,210 +1,320 @@
 <!DOCTYPE html>
-<!-- Coding By CodingNepal - codingnepalweb.com -->
 <html lang="en">
 
 <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EmpleoFast</title>
-    <link rel="stylesheet" href="style.css" />
+    <!-- ===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+    <!-- ===== CSS ===== -->
+    <title>Login & Registration Form</title>
 </head>
-
 <style>
-    /* Import Google font - Poppins */
-    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+    /* ===== Google Font Import - Poformsins ===== */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: "Poppins",
-            sans-serif;
+        font-family: 'Poppins', sans-serif;
     }
 
     body {
-        min-height: 100vh;
+        height: 100vh;
         display: flex;
         align-items: center;
         justify-content: center;
-        background: #f0faff;
+        background-color: #4070f4;
     }
 
-    .wrapper {
+    .container {
         position: relative;
-        max-width: 470px;
+        max-width: 430px;
         width: 100%;
-        border-radius: 12px;
-        padding: 20px 30px 120px;
-        background: #4070f4;
-        box-shadow: 0 5px 10px rgba(0,
-                0,
-                0,
-                0.1);
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
         overflow: hidden;
+        margin: 0 20px;
     }
 
-    .form.login {
-        position: absolute;
-        left: 50%;
-        bottom: -86%;
-        transform: translateX(-50%);
-        width: calc(100% + 220px);
-        padding: 20px 140px;
-        border-radius: 50%;
-        height: 100%;
-        background: #fff;
-        transition: all 0.6s ease;
-    }
-
-    .wrapper.active .form.login {
-        bottom: -15%;
-        border-radius: 35%;
-        box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .form header {
-        font-size: 30px;
-        text-align: center;
-        color: #fff;
-        font-weight: 600;
-        cursor: pointer;
-    }
-
-    .form.login header {
-        color: #333;
-        opacity: 0.6;
-    }
-
-    .wrapper.active .form.login header {
-        opacity: 1;
-    }
-
-    .wrapper.active .signup header {
-        opacity: 0.6;
-    }
-
-    .wrapper form {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        margin-top: 40px;
-    }
-
-    form input {
-        height: 60px;
-        outline: none;
-        border: none;
-        padding: 0 15px;
-        font-size: 16px;
-        font-weight: 400;
-        color: #333;
-        border-radius: 8px;
-        background: #fff;
-    }
-
-    .form.login input {
-        border: 1px solid #aaa;
-    }
-
-    .form.login input:focus {
-        box-shadow: 0 1px 0 #ddd;
-    }
-
-    form .checkbox {
+    .container .forms {
         display: flex;
         align-items: center;
-        gap: 10px;
+        height: 440px;
+        width: 200%;
+        transition: height 0.2s ease;
     }
 
-    .checkbox input[type="checkbox"] {
-        height: 16px;
-        width: 16px;
-        accent-color: #fff;
+
+    .container .form {
+        width: 50%;
+        padding: 30px;
+        background-color: #fff;
+        transition: margin-left 0.18s ease;
+    }
+
+    .container.active .login {
+        margin-left: -50%;
+        opacity: 0;
+        transition: margin-left 0.18s ease, opacity 0.15s ease;
+    }
+
+    .container .signup {
+        opacity: 0;
+        transition: opacity 0.09s ease;
+    }
+
+    .container.active .signup {
+        opacity: 1;
+        transition: opacity 0.2s ease;
+    }
+
+    .container.active .forms {
+        height: 500px;
+    }
+
+    .container .form .title {
+        position: relative;
+        font-size: 27px;
+        font-weight: 600;
+    }
+
+    .form .title::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 3px;
+        width: 30px;
+        background-color: #4070f4;
+        border-radius: 25px;
+    }
+
+    .form .input-field {
+        position: relative;
+        height: 50px;
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    .input-field input {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        padding: 0 35px;
+        border: none;
+        outline: none;
+        font-size: 16px;
+        border-bottom: 2px solid #ccc;
+        border-top: 2px solid transparent;
+        transition: all 0.2s ease;
+    }
+
+    .input-field input:is(:focus, :valid) {
+        border-bottom-color: #4070f4;
+    }
+
+    .input-field i {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #999;
+        font-size: 23px;
+        transition: all 0.2s ease;
+    }
+
+    .input-field input:is(:focus, :valid)~i {
+        color: #4070f4;
+    }
+
+    .input-field i.icon {
+        left: 0;
+    }
+
+    .input-field i.showHidePw {
+        right: 0;
         cursor: pointer;
+        padding: 10px;
     }
 
-    form .checkbox label {
-        cursor: pointer;
-        color: #fff;
+    .form .checkbox-text {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 20px;
     }
 
-    form a {
+    .checkbox-text .checkbox-content {
+        display: flex;
+        align-items: center;
+    }
+
+    .checkbox-content input {
+        margin-right: 10px;
+        accent-color: #4070f4;
+    }
+
+    .form .text {
         color: #333;
+        font-size: 14px;
+    }
+
+    .form a.text {
+        color: #4070f4;
         text-decoration: none;
     }
 
-    form a:hover {
+    .form a:hover {
         text-decoration: underline;
     }
 
-    form input[type="submit"] {
-        margin-top: 15px;
-        padding: none;
-        font-size: 18px;
-        font-weight: 500;
-        cursor: pointer;
+    .form .button {
+        margin-top: 35px;
     }
 
-    .form.login input[type="submit"] {
-        background: #4070f4;
-        color: #fff;
+    .form .button input {
         border: none;
+        color: #fff;
+        font-size: 17px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        border-radius: 6px;
+        background-color: #4070f4;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .button input:hover {
+        background-color: #265df2;
+    }
+
+    .form .login-signup {
+        margin-top: 30px;
+        text-align: center;
     }
 </style>
 
 <body>
-    <section class="wrapper">
-        <div class="form signup">
-            <header>Signup</header>
-            <form method="POST" action="{{ route('empresas.register') }}">
+    <div class="container">
+        <div class="forms">
+            <div class="form login">
+                <span class="title">Login</span>
+                @if ($errors->any())
+                    <div class="alert alert-danger" style="color: red">
+
+                            @foreach ($errors->all() as $error)
+                                <span>{{ $error }}</span>
+                            @endforeach
+                        
+                    </div>
+                @endif
                 @csrf
-                <input type="text" name="name" id="name" placeholder="Name company" required />
-                <input type="text" name="industry" id="industry" placeholder="Industry" required />
-                <input type="text" name="location" id="location" placeholder="location" required />
-                <input type="email" name="email" id="email" placeholder="Email" required />
-                <input type="password" name="password" id="password" placeholder="Password" required />
-                <div class="checkbox">
-                    <input type="checkbox" id="signupCheck" />
-                    <label for="signupCheck">I accept all terms & conditions</label>
+
+                <form action="{{ route('sesion') }}" method="POST">
+                    @csrf
+                    <div class="input-field">
+                        <input type="email" name="email" placeholder="Email" required>
+                        <i class="uil uil-envelope icon"></i>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" class="password" name="password" placeholder="Password" required>
+                        <i class="uil uil-lock icon"></i>
+                        <i class="uil uil-eye-slash showHidePw"></i>
+                    </div>
+
+                    <div class="checkbox-text">
+                        <a href="#" class="text">Forgot password?</a>
+                    </div>
+
+                    <div class="input-field button">
+                        <input type="submit" value="Login" />
+                    </div>
+                </form>
+
+                <div class="login-signup">
+                    <span class="text">¿No Tienes Cuenta?
+                        <a href="#" class="text signup-link">Registrate Ahora!</a>
+                    </span>
                 </div>
-                <input type="submit" value="Signup" />
-            </form>
-        </div>
+            </div>
 
-        <div class="form login">
-            <header>Login</header>
-            @if ($errors->any())
-                <div class="alert alert-danger" style="color: red">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
+            <!-- Registration Form -->
+            <div class="form signup">
+                <span class="title">Registration</span>
+
+                <form method="POST" action="{{ route('empresas.register') }}">
+                    @csrf
+                    <div class="input-field">
+                        <input type="text" name="name" id="name" placeholder="Name company" required />
+                        <i class="uil uil-user"></i>
+                    </div>
+                    <div class="input-field">
+                        <input type="email" name="email" id="email" placeholder="Email" required />
+                        <i class="uil uil-envelope icon"></i>
+                    </div>
+
+                    <div class="input-field">
+                        <input type="password" class="password" name="password" id="password" placeholder="Password" required />
+
+                        <i class="uil uil-lock icon"></i>
+                        <i class="uil uil-eye-slash showHidePw"></i>
+                    </div>
+
+                    <div class="input-field button">
+                        <input type="submit" value="Signup" />
+                    </div>
+                </form>
+
+                <div class="login-signup">
+                    <span class="text">¿Ya Tienes Cuenta?
+                        <a href="#" class="text login-link">Inicia Sesión Ahora!</a>
+                    </span>
                 </div>
-            @endif
-            @csrf
-            <form action="{{ route('sesion') }}" method="POST">
-                @csrf <!-- Esto genera el token CSRF automáticamente -->
-                <input type="email" name="email" placeholder="Email" required>
-                <input type="password" name="password" placeholder="Password" required>
-                <input type="submit" value="login">
-            </form>
+            </div>
         </div>
+    </div>
 
-        <script>
-            const wrapper = document.querySelector(".wrapper"),
-                signupHeader = document.querySelector(".signup header"),
-                loginHeader = document.querySelector(".login header");
+    <script>
+        const container = document.querySelector(".container"),
+            pwShowHide = document.querySelectorAll(".showHidePw"),
+            pwFields = document.querySelectorAll(".password"),
+            signUp = document.querySelector(".signup-link"),
+            login = document.querySelector(".login-link");
 
-            loginHeader.addEventListener("click", () => {
-                wrapper.classList.add("active");
+        // js code to show/hide password and change icon
+        pwShowHide.forEach((eyeIcon) => {
+            eyeIcon.addEventListener("click", () => {
+                pwFields.forEach((pwField) => {
+                    if (pwField.type === "password") {
+                        pwField.type = "text";
+
+                        pwShowHide.forEach((icon) => {
+                            icon.classList.replace("uil-eye-slash", "uil-eye");
+                        });
+                    } else {
+                        pwField.type = "password";
+
+                        pwShowHide.forEach((icon) => {
+                            icon.classList.replace("uil-eye", "uil-eye-slash");
+                        });
+                    }
+                });
             });
-            signupHeader.addEventListener("click", () => {
-                wrapper.classList.remove("active");
-            });
-        </script>
-    </section>
+        });
+
+        // js code to appear signup and login form
+        signUp.addEventListener("click", (e) => {
+            e.preventDefault();
+            container.classList.add("active");
+        });
+
+        login.addEventListener("click", (e) => {
+            e.preventDefault();
+            container.classList.remove("active");
+        });
+    </script>
 </body>
 
 </html>

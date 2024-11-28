@@ -17,8 +17,6 @@ class LoginCompanyController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string'],
-            'industry' => ['required', 'string'],
-            'location' => ['required', 'string'],
             'email' => ['required', 'email', 'unique:companies,email'],
             'password' => ['required', 'string', 'min:6'],
         ]);
