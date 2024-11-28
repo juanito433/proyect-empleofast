@@ -50,8 +50,18 @@ Route::get('app/perfil', function () {
 
 //company
 Route::get('empresas/', [CompanyController::class, 'empresa']);
+
 Route::get('empresas/register', [LoginCompanyController::class, 'register']);
 Route::post('empresas/register', [LoginCompanyController::class, 'saveregister'])->name('empresas.register');
+
+//sesión
+
+Route::post('empresas/sesion', [LoginCompanyController::class, 'login'])->name('sesion');
+
+
+Route::get('/logout', [LoginCompanyController::class, 'logout'])->name('logout');
+
+
 
 //company register jobs
 Route::get('admin/jobs/create', function () {
