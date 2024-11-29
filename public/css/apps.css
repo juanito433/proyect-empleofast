@@ -86,7 +86,7 @@ header,
     background: var(--light-gray-color) !important;
 }
 
-:where(.navbar, .sidebar) .nav-button i {
+:where(.navbar, .sidebar) .nav-button i P {
     font-size: 1.5rem;
     display: flex;
     color: var(--black-color);

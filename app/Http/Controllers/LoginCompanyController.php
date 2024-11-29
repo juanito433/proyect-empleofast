@@ -21,7 +21,7 @@ class LoginCompanyController extends Controller
             'password' => ['required', 'string', 'min:6'],
         ]);
 
-        Company::create([
+        $company = Company::create([
             'name' => $request->name,
             'industry' => $request->industry,
             'location' => $request->location,
@@ -29,9 +29,10 @@ class LoginCompanyController extends Controller
             'password' => bcrypt($request->password), // Encriptar la contraseña
         ]);
 
-
-        return redirect(url('empresas/'))->with('success', 'Registro exitoso.');
+        Auth::guard('company')->login($company); // Autenticar automáticamente
+        return redirect('empresas/admin/profile')->with('success', 'Registro y autenticación exitosos.');
     }
+
     public function login(Request $request)
     {
         $request->validate([
@@ -43,13 +44,17 @@ class LoginCompanyController extends Controller
 
         if (Auth::guard('company')->attempt($credenciales, $request->has('remember'))) {
             $request->session()->regenerate();
-            return redirect('empresas/');
+            return redirect()->intended('empresas/admin/profile'); // Redirige a la URL que intentaron acceder
         }
 
-        // Redirige con un mensaje de error
         return back()->withErrors(['email' => 'Las credenciales incorrectas.'])->withInput();
     }
 
+    public function profile()
+    {
+        $company = Auth::guard('company')->user(); // Obtiene el candidato autenticado
+        return view('admin.company.profile', compact('company'));
+    }
     public function logout(Request $request)
     {
         Auth::guard('company')->logout();

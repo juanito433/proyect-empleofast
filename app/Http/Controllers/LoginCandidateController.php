@@ -18,7 +18,7 @@ class LoginCandidateController extends Controller
         $request->validate([
             'name' => ['required', 'string'],
             'surname' => ['required', 'string'],
-            'email' => ['required', 'email', 'unique:companies,email'],
+            'email' => ['required', 'email', 'unique:candidates,email'],
             'password' => ['required', 'string', 'min:6'], 
         ]);
 

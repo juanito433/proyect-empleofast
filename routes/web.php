@@ -93,3 +93,14 @@ Route::get('/logout', [LoginCandidateController::class, 'logout'])->name('logout
 
 Route::get('app/perfil', [jobController::class, 'jobs']);
 
+//profile company
+
+Route::get('empresas/admin/profile', function () {
+    return view('admin.company.profile');
+});
+
+
+Route::middleware('auth:company')->group(function () {
+    Route::get('empresas/admin/profile', [LoginCompanyController::class, 'profile'])->name('company.profile');
+    // Otras rutas protegidas para la compañía
+});
