@@ -19,20 +19,24 @@ class LoginCandidateController extends Controller
             'name' => ['required', 'string'],
             'surname' => ['required', 'string'],
             'email' => ['required', 'email', 'unique:candidates,email'],
-            'password' => ['required', 'string', 'min:6'], 
+            'password' => ['required', 'string', 'min:6'],
         ]);
 
-        candidate::create([
+        $candidate = candidate::create([
             'name' => $request->name,
             'surname' => $request->surname,
             'email' => $request->email,
             'skills' => $request->skills,
             'location' => $request->location,
-            'password' => bcrypt($request->password), // Encriptar la contraseña
+            'password' => bcrypt($request->password),
         ]);
 
-        return redirect(url('candidatos/'))->with('success', 'Registro exitoso.');
+        // Autenticar automáticamente al candidato
+        Auth::guard('candidate')->login($candidate);
+
+        return redirect('candidatos/perfil')->with('success', 'Registro exitoso y autenticado.');
     }
+
     public function login(Request $request)
     {
         $request->validate([
@@ -44,12 +48,17 @@ class LoginCandidateController extends Controller
 
         if (Auth::guard('candidate')->attempt($credenciales, $request->has('remember'))) {
             $request->session()->regenerate();
-            return redirect('candidatos/');
+            return redirect()->intended('candidatos/perfil'); // Redirige a la URL protegida o al perfil
         }
 
-        // Redirige con un mensaje de error
         return back()->withErrors(['email' => 'Las credenciales incorrectas.'])->withInput();
     }
+    public function profile()
+    {
+        $candidate = Auth::guard('candidate')->user(); // Obtener el candidato autenticado
+        return view('admin.candidate.profile', compact('candidate')); // Pasar datos a la vista
+    }
+
 
     public function logouts(Request $request)
     {

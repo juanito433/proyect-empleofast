@@ -95,12 +95,17 @@ Route::get('app/perfil', [jobController::class, 'jobs']);
 
 //profile company
 
-Route::get('empresas/admin/profile', function () {
-    return view('admin.company.profile');
-});
 
 
+
+//rutas con sesion para companies
 Route::middleware('auth:company')->group(function () {
     Route::get('empresas/admin/profile', [LoginCompanyController::class, 'profile'])->name('company.profile');
     // Otras rutas protegidas para la compañía
+});
+
+//rutas con sesión para candidates
+Route::middleware('auth:candidate')->group(function () {
+    Route::get('candidatos/perfil', [LoginCandidateController::class, 'profile'])->name('candidate.profile');
+    // Otras rutas protegidas para candidatos
 });
