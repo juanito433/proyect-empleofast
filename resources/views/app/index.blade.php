@@ -109,16 +109,30 @@
             <div class="content-wrapper">
                 <!-- Category List -->
                 <div class="category-list">
-                    <button class="category-button" data-category="all">Todos</button>
+                    <button class="category-button active" data-category="all">Todos</button>
                     @foreach ($categories as $category)
                         <button class="category-button"
                             data-category="{{ $category->category }}">{{ $category->category }}</button>
                     @endforeach
                     <button class="category-button" data-category="recientes">Recientes</button>
                 </div>
-                <div class="type-list">
+                <div class="type-list"
+                    style="position: sticky;
+                            top: 40px;
+                            z-index: 10;
+                            background: var(--white-color);">
                     @foreach ($types as $type)
-                        <button class="type-button" data-type="{{ $type->type_jobs }}">{{ $type->type_jobs }}</button>
+                        <button class="type-button"
+                            style="border: none;
+                                    cursor: pointer;
+                                    font-weight: 500;
+                                    font-size: 0.94rem;
+                                    border-radius: 0.5rem;
+                                    white-space: nowrap;
+                                    color: var(--black-color);
+                                    padding: 0.4rem 0.75rem;
+                                    background: var(--light-gray-color);"
+                            data-type="{{ $type->type_jobs }}">{{ $type->type_jobs }}</button>
                     @endforeach
                 </div>
 

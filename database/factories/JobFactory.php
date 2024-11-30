@@ -22,14 +22,14 @@ class JobFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->jobTitle,
+            /* 'title' => $this->faker->jobTitle,
             'description' => fake()->sentence(8),
             'id_company' => company::inRandomOrder()->first()?->id ?? null, // Selecciona un ID de empresa aleatorio
             'publication_date' => fake()->dateTime(),
             'type_jobs' => fake()->sentence(20),
             'category' => fake()->sentence(20),
             'salary' => $this->faker->randomFloat(2, 3000, 15000), // Salario entre 3000 y 15000
-
+ */
         ];
     }
 }

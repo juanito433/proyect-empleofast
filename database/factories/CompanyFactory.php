@@ -21,11 +21,11 @@ class CompanyFactory extends Factory
     public function definition(): array
     {
         return [
-            'name'=> $this->faker->company,
+            /* 'name'=> $this->faker->company,
             'industry' => fake()->sentence(15),
             'location' => fake()-> streetAddress(),
             'email' => fake()->Unique()->safeEmail(),
-            'password' => static::$password ??= Hash::make('password'),
+            'password' => static::$password ??= Hash::make('password'), */
             
         ];
     }

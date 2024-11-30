@@ -228,7 +228,7 @@ body.sidebar-hidden .main-layout .sidebar {
     width: 100%;
 }
 
-.content-wrapper .category-list {
+.content-wrapper .category-list  {
     display: flex;
     overflow-x: auto;
     gap: 0.75rem;
