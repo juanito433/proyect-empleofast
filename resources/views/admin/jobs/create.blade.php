@@ -12,16 +12,20 @@
 <body>
     <section class="container">
         <header>Crea una nueva oferta</header>
-        <form action="{{ route('jobs.publication') }}" method="POST" class="form" enctype="multipart/form-data">
-            @csrf
-            <div class="input-box">
-                <label for="id_company">Empresa</label>
-                <select id="id_company" name="id_company" required>
-                    @foreach ($companies as $company)
-                        <option value="{{ $company->id }}">{{ $company->name }}</option>
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
                     @endforeach
-                </select>
+                </ul>
             </div>
+        @endif
+
+        <form action="/admin/jobs/{{$company->id}}/publication" method="POST" class="form" enctype="multipart/form-data">
+            @csrf
+            <input type="hidden" name="id_company" value="{{ $company->id }}">
+
             <div class="input-box">
                 <label for="title">Título del Trabajo</label>
                 <input type="text" name="title" id="title" placeholder="Ej. Mesero para restaurante" required>

@@ -78,9 +78,9 @@
                         <a href="/empresas/perfil/{{ $company->id }}/edit" class="link-item">
                             <i class="uil uil-user-circle"></i> Editar Perfil
                         </a>
-                        <a href="#" class="link-item">
+                        <a href="/admin/jobs/{{$company->id}}/create" class="link-item">
                             <i class="uil uil-plus-circle"></i> Publicar Empleo
-                        </a>
+                        </a>                        
                         <a href="#" class="link-item">
                             <i class="uil uil-list-ui-alt"></i> Sin Atender
                         </a>

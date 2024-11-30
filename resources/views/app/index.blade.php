@@ -110,29 +110,25 @@
                 <!-- Category List -->
                 <div class="category-list">
                     <button class="category-button" data-category="all">Todos</button>
-                    <button class="category-button" data-category="recent">Recientes</button>
-                    <button class="category-button" data-category="Tecnología">Tecnología</button>
-                    <button class="category-button" data-category="Marketing">Marketing</button>
-                    <button class="category-button" data-category="Salud">Salud</button>
-                    <button class="category-button" data-category="Educación">Educación</button>
-                    <button class="category-button" data-category="Finanzas">Finanzas</button>
-                    <button class="category-button" data-category="Ventas">Ventas</button>
-                    <button class="category-button" data-category="Tiempo completo">Tiempo completo</button>
-                    <button class="category-button" data-category="Mediotiempo">Medio tiempo</button>
-                    <button class="category-button" data-category="Freelance">Freelance</button>
-                    <button class="category-button" data-category="Temporal">Temporal</button>
-                    <button class="category-button" data-category="Híbrido">Híbrido</button>
-                    <button class="category-button" data-category="Remoto">Remoto</button>
+                    @foreach ($categories as $category)
+                        <button class="category-button"
+                            data-category="{{ $category->category }}">{{ $category->category }}</button>
+                    @endforeach
+                    <button class="category-button" data-category="recientes">Recientes</button>
+                </div>
+                <div class="type-list">
+                    @foreach ($types as $type)
+                        <button class="type-button" data-type="{{ $type->type_jobs }}">{{ $type->type_jobs }}</button>
+                    @endforeach
                 </div>
 
                 <!-- Video List -->
                 <div class="video-list">
                     @foreach ($jobs as $job)
-                        <a href="#" class="video-card"
-                            data-category="{{ $job->category }}, {{ $job->type_jobs }}"
-                            data-description="{{ $job->description }}" data-salary="{{ $job->salary }}"
-                            data-category="{{ $job->category }}" data-publication_date="{{ $job->publication_date }}"
-                            data-type_jobs="{{ $job->type_jobs }}" data-image="{{ Storage::url($job->image_url) }}">
+                        <a href="#" class="video-card" data-category="{{ $job->category }}"
+                            data-type_jobs="{{ $job->type_jobs }}" data-description="{{ $job->description }}"
+                            data-salary="{{ $job->salary }}" data-publication_date="{{ $job->publication_date }}"
+                            data-image="{{ Storage::url($job->image_url) }}">
                             <div class="thumbnail-container">
                                 <img src="{{ Storage::url($job->image_url) }}" alt="Imagen del trabajo"
                                     class="thumbnail">
@@ -170,64 +166,110 @@
 
     <script>
         // Obtener todos los botones de categoría y las tarjetas de trabajo
+        // Obtener todos los botones de categoría y tipo de trabajo
         const categoryButtons = document.querySelectorAll('.category-button');
+        const typeButtons = document.querySelectorAll('.type-button');
         const videoCards = document.querySelectorAll('.video-card');
 
-        // Arreglo para almacenar las categorías seleccionadas
+        // Arreglos para almacenar las categorías y tipos seleccionados
         let selectedCategories = [];
+        let selectedTypes = [];
 
-        // Obtener la fecha de hace 7 días para el filtro "Recientes"
-        const today = new Date();
-        const oneWeekAgo = new Date(today.getTime() - 7 * 24 * 60 * 60 * 1000);
+        // Función para filtrar trabajos en función de las categorías y tipos seleccionados
+        function filterJobs() {
+            videoCards.forEach(card => {
+                const cardCategories = card.getAttribute('data-category').split(', ');
+                const cardTypes = card.getAttribute('data-type_jobs').split(', ');
 
+                const matchCategory = selectedCategories.length === 0 || selectedCategories.some(category =>
+                    cardCategories.includes(category));
+                const matchType = selectedTypes.length === 0 || selectedTypes.some(type => cardTypes.includes(
+                    type));
+
+                // Mostrar u ocultar las tarjetas según los filtros seleccionados
+                card.style.display = matchCategory && matchType ? 'block' : 'none';
+            });
+        }
+
+        // Evento para los botones de categoría
         categoryButtons.forEach(button => {
             button.addEventListener('click', () => {
                 const category = button.getAttribute('data-category');
 
-                // Si se selecciona "Todos", limpiar todas las categorías seleccionadas
                 if (category === 'all') {
+                    // Si se selecciona "Todos", resetear todos los filtros
                     selectedCategories = [];
-                    categoryButtons.forEach(btn => btn.classList.remove('active'));
-                } else if (category === 'recent') {
-                    // Si la categoría es "Recientes", gestionarla de manera especial
-                    if (selectedCategories.includes(category)) {
-                        selectedCategories = selectedCategories.filter(item => item !== category);
-                        button.classList.remove('active');
-                    } else {
-                        selectedCategories.push(category);
-                        button.classList.add('active');
-                    }
+                } else if (selectedCategories.includes(category)) {
+                    // Si la categoría ya está seleccionada, desmarcarla
+                    selectedCategories = selectedCategories.filter(item => item !== category);
                 } else {
-                    // Agregar o quitar la categoría seleccionada
-                    if (selectedCategories.includes(category)) {
-                        selectedCategories = selectedCategories.filter(item => item !== category);
-                        button.classList.remove('active');
-                    } else {
-                        selectedCategories.push(category);
-                        button.classList.add('active');
-                    }
+                    // Si no está seleccionada, agregarla
+                    selectedCategories.push(category);
                 }
 
-                // Filtrar las tarjetas de trabajo
-                videoCards.forEach(card => {
-                    const cardCategories = card.getAttribute('data-category').split(', ');
-                    const publicationDate = new Date(card.getAttribute('data-publication_date'));
-
-                    // Verificar si la tarjeta coincide con alguna categoría seleccionada
-                    const matchesCategories = selectedCategories.some(selectedCategory =>
-                        selectedCategory === 'recent' ?
-                        publicationDate >= oneWeekAgo // Si la categoría es "Recientes"
-                        :
-                        cardCategories.includes(selectedCategory)
-                    );
-
-                    // Mostrar la tarjeta si hay coincidencias o si no hay categorías seleccionadas
-                    card.style.display = (selectedCategories.length === 0 || matchesCategories) ?
-                        'block' : 'none';
-                });
+                // Actualizar las tarjetas filtradas
+                filterJobs();
             });
         });
 
+        // Evento para los botones de tipo de trabajo
+        typeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const type = button.getAttribute('data-type');
+
+                if (selectedTypes.includes(type)) {
+                    // Si el tipo ya está seleccionado, desmarcarlo
+                    selectedTypes = selectedTypes.filter(item => item !== type);
+                } else {
+                    // Si no está seleccionado, agregarlo
+                    selectedTypes.push(type);
+                }
+
+                // Actualizar las tarjetas filtradas
+                filterJobs();
+            });
+        });
+        // Obtener la fecha de hace 7 días para el filtro "Recientes"
+        const today = new Date();
+        const oneWeekAgo = new Date(today.getTime() - 7 * 24 * 60 * 60 * 1000);
+
+        // Evento para el botón "Recientes"
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const category = button.getAttribute('data-category');
+
+                if (category === 'recientes') {
+                    // Filtrar trabajos por fecha reciente (menos de 7 días)
+                    videoCards.forEach(card => {
+                        const publicationDate = new Date(card.getAttribute(
+                            'data-publication_date'));
+                        const isRecent = publicationDate >= oneWeekAgo;
+
+                        card.style.display = isRecent ? 'block' : 'none';
+                    });
+                } else {
+                    // Filtrar por categoría y tipo como antes
+                    // El código de filtrado para categorías y tipos continúa aquí...
+                }
+            });
+        });
+
+
+        // Lógica del modal (sin cambios respecto a tu código)
+        const modal = document.getElementById("myModal");
+        const closeModal = document.getElementsByClassName("close")[0];
+
+        // Cerrar el modal con la X
+        closeModal.onclick = function() {
+            modal.style.display = "none";
+        };
+
+        // Cerrar el modal al hacer clic fuera del contenido
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        };
 
         // Agregar evento a cada tarjeta para abrir el modal
         videoCards.forEach(card => {

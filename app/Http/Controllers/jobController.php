@@ -10,14 +10,23 @@ class jobController extends Controller
 {
     public function jobs()
     {
-        $jobs = Job::with('company')->get(); // Carga la relación
-        return view('app.index', compact('jobs'));
+        // Obtener los trabajos con la relación 'company'
+        $jobs = Job::with('company')->get();
+
+        // Obtener las categorías y tipos únicos
+        $categories = Job::select('category')->distinct()->get();
+        $types = Job::select('type_jobs')->distinct()->get();
+
+        // Pasar las variables a la vista
+        return view('app.index', compact('jobs', 'categories', 'types'));
     }
 
-    public function create()
+
+    public function create(Request $request)
     {
-        $companies = company::all(); // Obtén todas las empresas
-        return view('admin.jobs.create', compact('companies'));
+        $company = company::find($request->id);
+
+        return view('admin.jobs.create', compact('company'));
     }
     public function publication(Request $request)
     {

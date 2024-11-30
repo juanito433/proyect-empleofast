@@ -20,6 +20,7 @@ use App\Http\Controllers\LoginCompanyController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 Route::get('app/', function () {
     return view('app');
 });
@@ -70,15 +71,6 @@ Route::get('admin/jobs/create', function () {
     return view('admin.jobs.create');
 });
 
-//Publication jobs
-// Mostrar el formulario para crear trabajos
-Route::get('admin/jobs/create', [jobController::class, 'create'])->name('jobs.create');
-
-// Publicar un trabajo (procesar el formulario)
-Route::post('admin/jobs/publication', [jobController::class, 'publication'])->name('jobs.publication');
-
-
-
 //Candidate
 Route::get('candidatos/', [candidateController::class, 'candidatos']);
 Route::get('candidatos/register', [LoginCandidateController::class, 'register']);
@@ -102,15 +94,25 @@ Route::get('app/perfil', [jobController::class, 'jobs']);
 
 //rutas con sesion para companies
 Route::middleware('auth:company')->group(function () {
+    //Perfil
     Route::get('empresas/admin/profile', [LoginCompanyController::class, 'profile'])->name('company.profile');
+
+    //Editar y actualizar perfil
     Route::get('empresas/perfil/{id}/edit', [AdminCompanyController::class, 'edit']);
-    Route::put('empresas/perfil/{id}/update', [AdminCompanyController::class, 'update']); // Cambiado a PUT
+    Route::put('empresas/perfil/{id}/update', [AdminCompanyController::class, 'update']);
+
+    //Publication jobs
+
+    // Mostrar el formulario para crear trabajos
+    Route::get('admin/jobs/{id}/create', [jobController::class, 'create'])->name('jobs.create');
+
+    // Publicar un trabajo (procesar el formulario)
+    Route::post('admin/jobs/{id}/publication', [jobController::class, 'publication']);
 });
 
 //rutas con sesión para candidates
 Route::middleware('auth:candidate')->group(function () {
     Route::get('candidatos/perfil', [LoginCandidateController::class, 'profile'])->name('candidate.profile');
     Route::get('candidatos/perfil/{id}/edit', [AdminCandidateController::class, 'edit']);
-    Route::put('candidatos/perfil/{id}/update', [AdminCandidateController::class, 'update']); // Cambiado a PUT
+    Route::put('candidatos/perfil/{id}/update', [AdminCandidateController::class, 'update']);
 });
-
