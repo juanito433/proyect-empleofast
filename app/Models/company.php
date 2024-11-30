@@ -15,9 +15,18 @@ class company extends Authenticatable
         'name',
         'industry',
         'location',
+        'telefono',
+        'date_create',
+        'valores',
+        'description',
+        'instagram',
+        'facebook',
+        'x',
+        'site',
         'image_url',
         'email',
         'password',
+
     ];
     protected $hidden = [
         'password',

@@ -30,14 +30,18 @@
                     </a>
                 </div>
 
-
+                @if (session('success'))
+                    <div class="alert alert-success" style="color: rgb(28, 206, 28)">
+                        {{ session('success') }}
+                    </div>
+                @endif
 
                 <div class="nav-section nav-right">
 
                     <button class="nav-button theme-button">
                         <i class="uil uil-moon"></i>
                     </button>
-                    <img src="images/user.jpg" alt="User Image" class="user-image">
+                    <img src="{{ Storage::url($candidate->image_url) }}" alt="User Image" class="user-image">
                 </div>
             </nav>
         </header>
@@ -103,15 +107,10 @@
                         <div class="perfil-usuario-portada">
                             <div class="perfil-usuario-avatar">
                                 <img src="{{ Storage::url($candidate->image_url) }}" alt="img-avatar">
-                                <button type="button" class="boton-avatar">
-                                    <i class="far fa-image"></i>
-                                </button>
-                            </div>
-                            <button type="button" class="boton-portada">
-                                <i class="far fa-image"></i> Cambiar fondo
-                            </button>
+                                
                         </div>
                     </div>
+
                     <div class="perfil-usuario-body">
                         <div class="perfil-usuario-bio"
                             style="display: flex;
@@ -124,16 +123,16 @@
                                 <br>
                             <ul>
                                 @php
-                                $skills = json_decode($candidate->skills);
-                            @endphp
-                            
-                            @if ($skills && is_array($skills))
-                                @foreach ($skills as $skill)
-                                    <li>{{ $skill }}</li>
-                                @endforeach
-                            @else
-                                <p>No hay habilidades disponibles.</p>
-                            @endif
+                                    $skills = json_decode($candidate->skills);
+                                @endphp
+
+                                @if ($skills && is_array($skills))
+                                    @foreach ($skills as $skill)
+                                        <li>{{ $skill }}</li>
+                                    @endforeach
+                                @else
+                                    <p>No hay habilidades disponibles.</p>
+                                @endif
                             </ul>
                             </p>
 

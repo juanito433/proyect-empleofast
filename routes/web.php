@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminCandidateController;
+use App\Http\Controllers\AdminCompanyController;
 use App\Http\Controllers\candidateController;
 use App\Models\company;
 use Illuminate\Support\Facades\Route;
@@ -102,7 +103,8 @@ Route::get('app/perfil', [jobController::class, 'jobs']);
 //rutas con sesion para companies
 Route::middleware('auth:company')->group(function () {
     Route::get('empresas/admin/profile', [LoginCompanyController::class, 'profile'])->name('company.profile');
-    
+    Route::get('empresas/perfil/{id}/edit', [AdminCompanyController::class, 'edit']);
+    Route::put('empresas/perfil/{id}/update', [AdminCompanyController::class, 'update']); // Cambiado a PUT
 });
 
 //rutas con sesión para candidates

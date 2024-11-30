@@ -71,6 +71,8 @@ header,
     width: 32px;
     cursor: pointer;
     border-radius: 50%;
+    height: 32px;
+    object-fit: cover;
 }
 
 :where(.navbar, .sidebar) .nav-section .nav-button {
@@ -434,6 +436,8 @@ p {
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 30px;
+
 }
 
 .seccion-perfil-usuario .perfil-usuario-header {
@@ -492,9 +496,11 @@ background-size: cover;
 }
 
 .seccion-perfil-usuario .perfil-usuario-avatar img {
-    width: 100%;
+    width: 170px;
+    height: 170px;
     position: relative;
     border-radius: 50%;
+    object-fit: cover;
 }
 
 .seccion-perfil-usuario .perfil-usuario-avatar .boton-avatar {
