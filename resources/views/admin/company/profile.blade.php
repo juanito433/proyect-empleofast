@@ -32,10 +32,10 @@
 
 
                 @if (session('success'))
-                <div class="alert alert-success" style="color: rgb(28, 206, 28)">
-                    {{ session('success') }}
-                </div>
-            @endif
+                    <div class="alert alert-success" style="color: rgb(28, 206, 28)">
+                        {{ session('success') }}
+                    </div>
+                @endif
                 <div class="nav-section nav-right">
 
                     <button class="nav-button theme-button">
@@ -68,25 +68,21 @@
                 <div class="links-container">
                     <div class="link-section">
                         <a href="#" class="link-item">
-                            <i class="uil uil-estate"></i> Empleos Diponibles
+                            <i class="uil uil-clipboard-notes"></i> Empleos Publicados
                         </a>
-                        <a href="#" class="link-item">
-                            <i class="uil uil-video"></i> Empresas
-                        </a>
-
                     </div>
                     <div class="section-separator"></div>
 
                     <div class="link-section">
                         <h4 class="section-title">De ti</h4>
                         <a href="/empresas/perfil/{{ $company->id }}/edit" class="link-item">
-                            <i class="uil uil-edit"></i> Editar Perfil
+                            <i class="uil uil-user-circle"></i> Editar Perfil
                         </a>
                         <a href="#" class="link-item">
-                            <i class="uil uil-history"></i> Postulaciones
+                            <i class="uil uil-plus-circle"></i> Publicar Empleo
                         </a>
                         <a href="#" class="link-item">
-                            <i class="uil uil-clock"></i> Guardados
+                            <i class="uil uil-list-ui-alt"></i> Sin Atender
                         </a>
                     </div>
                     <div class="section-separator"></div>
@@ -94,9 +90,19 @@
                     <div class="link-section">
                         <h4 class="section-title">Otros</h4>
                         <a href="#" class="link-item">
-                            <i class="uil uil-fire"></i> Mensajes
+                            <i class="uil uil-envelope"></i> Mensajes
                         </a>
                     </div>
+                    <div class="section-separator"></div>
+
+                    <div class="link-section">
+                        <h4 class="section-title">Cuenta</h4>
+                        <a href="/logout" class="link-item">
+                            <i class="uil uil-signout"></i> Cerrar Sesión
+                        </a>
+                    </div>
+                </div>
+
 
             </aside>
 
@@ -107,11 +113,11 @@
                         <div class="perfil-usuario-portada">
                             <div class="perfil-usuario-avatar">
                                 <img src="{{ Storage::url($company->image_url) }}" alt="img-avatar">
-                                
+
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="perfil-usuario-body">
                         <div class="perfil-usuario-bio"
                             style="display: flex;
