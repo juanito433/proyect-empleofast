@@ -75,7 +75,7 @@
 
                     <div class="link-section">
                         <h4 class="section-title">De ti</h4>
-                        <a href="/candidatos/perfil/{{ $candidate->id}}/edit" class="link-item">
+                        <a href="/candidatos/perfil/{{ $candidate->id }}/edit" class="link-item">
                             <i class="uil uil-edit"></i> Editar Perfil
                         </a>
                         <a href="#" class="link-item">
@@ -102,7 +102,7 @@
                     <div class="perfil-usuario-header">
                         <div class="perfil-usuario-portada">
                             <div class="perfil-usuario-avatar">
-                                <img src="{{ Storage::url($candidate->image_url)}}" alt="img-avatar">
+                                <img src="{{ Storage::url($candidate->image_url) }}" alt="img-avatar">
                                 <button type="button" class="boton-avatar">
                                     <i class="far fa-image"></i>
                                 </button>
@@ -113,36 +113,63 @@
                         </div>
                     </div>
                     <div class="perfil-usuario-body">
-                        <div class="perfil-usuario-bio">
-                            <h3 class="titulo">{{ $candidate->name }} {{$candidate->surname}}</h3>
-                            <p class="texto">{{ $candidate->about_me ?? 'No hay nada aún'}}</p>
+                        <div class="perfil-usuario-bio"
+                            style="display: flex;
+                                    flex-wrap: wrap;
+                                    flex-direction: column;
+                                    align-items: center;
+                                    justify-content: center;">
+                            <h3 class="titulo">{{ $candidate->name }} {{ $candidate->surname }}</h3>
+                            <p class="texto">{{ $candidate->about_me ?? 'No hay nada aún' }}
+                                <br>
+                            <ul>
+                                @php
+                                $skills = json_decode($candidate->skills);
+                            @endphp
+                            
+                            @if ($skills && is_array($skills))
+                                @foreach ($skills as $skill)
+                                    <li>{{ $skill }}</li>
+                                @endforeach
+                            @else
+                                <p>No hay habilidades disponibles.</p>
+                            @endif
+                            </ul>
+                            </p>
+
                         </div>
                         <div class="perfil-usuario-footer">
                             <ul class="lista-datos">
-                                <li><i class="icono fas fa-map-signs"></i> 
-                                    <a href="mailto:{{ $candidate->email}}">Correo</a>
-                                <li><i class="icono fas fa-phone-alt"></i> Telefono:{{ $candidate->telefono ?? 'No hay nada aún'}}</li>
+                                <li><i class="icono fas fa-map-signs"></i>
+                                    <a href="mailto:{{ $candidate->email }}">Correo</a>
+                                <li><i class="icono fas fa-phone-alt"></i>
+                                    Telefono:{{ $candidate->telefono ?? 'No hay nada aún' }}</li>
                                 <li><i class="icono fas fa-briefcase"></i> Trabaja en.</li>
                                 <li><i class="icono fas fa-building"></i> Cargo</li>
                             </ul>
                             <ul class="lista-datos">
-                                <li><i class="icono fas fa-map-marker-alt"></i> Ubicacion.{{ $candidate->location ?? 'No hay nada aún'}}</li>
-                                <li><i class="icono fas fa-calendar-alt"></i> Fecha nacimiento.{{ $candidate->date_birth ?? 'No hay nada aún'}}</li>
-                                <li><i class="icono fas fa-user-check"></i> Registro.{{ $candidate->date_create ?? 'No hay nada aún'}}</li>
-                                <li><i class="icono fas fa-share-alt"></i> Redes sociales.{{ $candidate->x ?? 'No hay nada aún'}}</li>
+                                <li><i class="icono fas fa-map-marker-alt"></i>
+                                    Ubicacion.{{ $candidate->location ?? 'No hay nada aún' }}</li>
+                                <li><i class="icono fas fa-calendar-alt"></i> Fecha
+                                    nacimiento.{{ $candidate->date_birth ?? 'No hay nada aún' }}</li>
+                                <li><i class="icono fas fa-user-check"></i>
+                                    Registro.{{ $candidate->date_create ?? 'No hay nada aún' }}</li>
+                                <li><i class="icono fas fa-share-alt"></i> Redes
+                                    sociales.{{ $candidate->x ?? 'No hay nada aún' }}</li>
                             </ul>
                             <br>
 
                             <div class="curriculum" style="align-items: center">
-                                <a href="#" type="button" style="text-decoration: none">Decargar Curriculum</a>
+                                <a href="#" type="button" style="text-decoration: none">Decargar
+                                    Curriculum</a>
                             </div>
                         </div>
                         <div class="redes-sociales">
-                            <a href="{{ $candidate->facebook}}" class="boton-redes facebook fab fa-facebook-f"><i
+                            <a href="{{ $candidate->facebook }}" class="boton-redes facebook fab fa-facebook-f"><i
                                     class="icon-facebook"></i></a>
-                            <a href="{{ $candidate->x}}" class="boton-redes twitter fab fa-twitter"><i
+                            <a href="{{ $candidate->x }}" class="boton-redes twitter fab fa-twitter"><i
                                     class="icon-twitter"></i></a>
-                            <a href="{{ $candidate->instagram}}" class="boton-redes instagram fab fa-instagram"><i
+                            <a href="{{ $candidate->instagram }}" class="boton-redes instagram fab fa-instagram"><i
                                     class="icon-instagram"></i></a>
                         </div>
                     </div>

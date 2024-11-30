@@ -17,11 +17,11 @@ return new class extends Migration
             $table->string('surname');
             $table->string('email');
             $table->string('about_me')->nullable();
-            $table->string('skills')->nullable();
+            $table->text('skills')->nullable();
             $table->string('location')->nullable();
             $table->string('image_url')->nullable();
-            $table->string('date_create')->nullable();
-            $table->string('date_birth')->nullable();
+            $table->dateTime('date_create')->nullable();
+            $table->dateTime('date_birth')->nullable();
             $table->string('facebook')->nullable();
             $table->string('instagram')->nullable();
             $table->string('x')->nullable();

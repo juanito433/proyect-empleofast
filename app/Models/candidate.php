@@ -18,6 +18,16 @@ class candidate extends Authenticatable
         'skills',
         'location',
         'password',
+        'image_url',
+        'date_create',
+        'date_birth',
+        'facebook',
+        'instagram',
+        'x',
+        'about_me',
+
+
+
     ];
     protected $hidden = [
         'password',
