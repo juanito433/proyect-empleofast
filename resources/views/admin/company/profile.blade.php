@@ -32,9 +32,9 @@
 
 
                 @if (session('success'))
-                    <div class="alert alert-success" style="color: rgb(28, 206, 28)">
-                        {{ session('success') }}
-                    </div>
+                <div class="alert alert-success" style="color: rgb(28, 206, 28)">
+                    {{ session('success') }}
+                </div>
                 @endif
                 <div class="nav-section nav-right">
 
@@ -58,21 +58,75 @@
                     </button>
                     <center>
                         <a href="#" class="nav-logo">
-                            <img src="{{ asset('images/logof.png') }}" alt="Logo" class="logo-image"
-                                style="width: 130px">
-
+                            <img src="{{ asset('images/logof.png') }}" alt="Logo" class="logo-image" style="width: 130px">
                         </a>
                     </center>
                 </div>
-
                 <div class="links-container">
                     <div class="link-section">
                         <a href="#" class="link-item">
                             <i class="uil uil-clipboard-notes"></i> Empleos Publicados
                         </a>
                     </div>
+                    <!-- Aquí se agrega el slider dentro de la barra lateral -->
+                    <div class="card-slider-section">
+                        <div class="wrapper">
+                            <div class="outer">
+                                <div class="card" style="--delay:-1;">
+                                    <div class="content">
+                                        <div class="img"><img src="#" alt=""></div>
+                                        <div class="details">
+                                            <span class="name">Sumit Kapoor</span>
+                                            <p>Frontend Developer</p>
+                                        </div>
+                                    </div>
+                                    <a href="#">Follow</a>
+                                </div>
+                                <div class="card" style="--delay:0;">
+                                    <div class="content">
+                                        <div class="img"><img src="#" alt=""></div>
+                                        <div class="details">
+                                            <span class="name">Andrew Neil</span>
+                                            <p>YouTuber & Blogger</p>
+                                        </div>
+                                    </div>
+                                    <a href="#">Follow</a>
+                                </div>
+                                <div class="card" style="--delay:1;">
+                                    <div class="content">
+                                        <div class="img"><img src="#" alt=""></div>
+                                        <div class="details">
+                                            <span class="name">Jasmine Carter</span>
+                                            <p>Freelancer & Vlogger</p>
+                                        </div>
+                                    </div>
+                                    <a href="#">Follow</a>
+                                </div>
+                                <div class="card" style="--delay:2;">
+                                    <div class="content">
+                                        <div class="img"><img src="#" alt=""></div>
+                                        <div class="details">
+                                            <span class="name">Justin Chung</span>
+                                            <p>Backend Developer</p>
+                                        </div>
+                                    </div>
+                                    <a href="#">Follow</a>
+                                </div>
+                                <div class="card" style="--delay:2;">
+                                    <div class="content">
+                                        <div class="img"><img src="#" alt=""></div>
+                                        <div class="details">
+                                            <span class="name">Adrina Calvo</span>
+                                            <p>Teacher & Advertiser</p>
+                                        </div>
+                                    </div>
+                                    <a href="#">Follow</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="section-separator"></div>
-
+                    <!-- Fin del slider -->
                     <div class="link-section">
                         <h4 class="section-title">De ti</h4>
                         <a href="/empresas/perfil/{{ $company->id }}/edit" class="link-item">
@@ -80,13 +134,12 @@
                         </a>
                         <a href="/admin/jobs/{{$company->id}}/create" class="link-item">
                             <i class="uil uil-plus-circle"></i> Publicar Empleo
-                        </a>                        
+                        </a>
                         <a href="#" class="link-item">
                             <i class="uil uil-list-ui-alt"></i> Sin Atender
                         </a>
                     </div>
                     <div class="section-separator"></div>
-
                     <div class="link-section">
                         <h4 class="section-title">Otros</h4>
                         <a href="#" class="link-item">
@@ -94,7 +147,6 @@
                         </a>
                     </div>
                     <div class="section-separator"></div>
-
                     <div class="link-section">
                         <h4 class="section-title">Cuenta</h4>
                         <a href="/logout" class="link-item">
@@ -102,9 +154,53 @@
                         </a>
                     </div>
                 </div>
-
-
             </aside>
+            <style>
+                /* Estilos específicos para el slider dentro del sidebar */
+                .card-slider-section {
+                    margin: 20px 0;
+                    padding: 10px;
+                    max-height: 350px;
+                    overflow-y: auto;
+                    /* Permite el desplazamiento si el contenido excede el alto del contenedor */
+                    background-color: #f9f9f9;
+                    border-radius: 10px;
+                }
+
+                .wrapper .outer {
+                    display: flex;
+                    flex-direction: column;
+                    /* Asegura que las tarjetas se apilen verticalmente */
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .wrapper .card {
+                    margin: 10px 0;
+                    width: 100%;
+                    max-width: 350px;
+                    /* Limita el tamaño de las tarjetas */
+                    position: relative;
+                }
+
+                .card .content {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                }
+
+                .card a {
+                    text-decoration: none;
+                    padding: 7px 18px;
+                    border-radius: 25px;
+                    color: #fff;
+                    background: linear-gradient(to bottom, #bea2e7 0%, #86b7e7 100%);
+                    transition: all 0.3s ease;
+                    display: inline-block;
+                    margin-top: 10px;
+                }
+            </style>
+
 
             <div class="content-wrapper">
 
@@ -143,7 +239,8 @@
                                 <li><i class="icono fas fa-user-check"></i>
                                     Registro.{{ $company->date_create ?? 'No hay nada aún' }}</li>
                                 <li><i class="icono fas fa-share-alt"></i> Valores:
-                                    {{ $company->valores ?? 'No hay nada aún' }}</li>
+                                    {{ $company->valores ?? 'No hay nada aún' }}
+                                </li>
                             </ul>
                             <br>
 

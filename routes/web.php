@@ -49,6 +49,13 @@ Route::get('app/perfil', function () {
     return view('app/index');
 });
 
+Route::get('publicaciones/jobs', function () {
+    return view('admin.company.jobpublic');
+});
+Route::get('publicaciones/company', function () {
+    return view('components.companypublic');
+});
+
 //Prueba
 
 //company
