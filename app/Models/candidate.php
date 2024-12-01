@@ -29,6 +29,11 @@ class candidate extends Authenticatable
 
 
     ];
+    public function applications()
+    {
+        return $this->hasMany(application::class, 'id_candidate');
+    }
+
     protected $hidden = [
         'password',
         'remember_token', // Agrega esto si usas el remember token

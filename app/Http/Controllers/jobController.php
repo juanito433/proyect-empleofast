@@ -2,24 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\candidate;
 use App\Models\company;
 use App\Models\job;
 use Illuminate\Http\Request;
 
 class jobController extends Controller
 {
-    public function jobs()
+    public function jobs(Request $request)
     {
-        // Obtener los trabajos con la relación 'company'
         $jobs = Job::with('company')->get();
-
-        // Obtener las categorías y tipos únicos
         $categories = Job::select('category')->distinct()->get();
         $types = Job::select('type_jobs')->distinct()->get();
 
-        // Pasar las variables a la vista
-        return view('app.index', compact('jobs', 'categories', 'types'));
+        // Cargar el candidato solo si se pasa el ID
+        $candidate = null;
+        if ($request->id) {
+            $candidate = Candidate::find($request->id);
+        }
+
+        return view('app.index', compact('jobs', 'categories', 'types', 'candidate'));
     }
+
 
 
     public function create(Request $request)
@@ -49,6 +53,6 @@ class jobController extends Controller
 
         Job::create($validated);
 
-        return redirect(url('app/perfil'))->with('success', 'Trabajo registrado con éxito.');
+        return redirect(url('/empresas/admin/profile'))->with('success', 'Trabajo registrado con éxito.');
     }
 }

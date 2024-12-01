@@ -42,7 +42,6 @@
                         <i class="uil uil-bars"></i>
                     </button>
                     <a href="#" class="nav-logo">
-                        <img src="images/logo.png" alt="Logo" class="logo-image">
                         <h2 class="logo-text">EmpleaFast</h2>
                     </a>
                 </div>
@@ -66,7 +65,7 @@
                     <button class="nav-button theme-button">
                         <i class="uil uil-moon"></i>
                     </button>
-                    <img src="images/user.jpg" alt="User  Image" class="user-image">
+                    <img src="images/user.jpg" alt="User Image" class="user-image">
                 </div>
             </nav>
         </header>
@@ -83,7 +82,9 @@
                     </button>
                     <center>
                         <a href="#" class="nav-logo">
-                            <img src="{{ asset('images/logof.png') }}" alt="Logo" class="logo-image" style="width: 130px">
+                            <img src="{{ asset('images/logof.png') }}" alt="Logo" class="logo-image"
+                                style="width: 130px">
+
                         </a>
                     </center>
                 </div>
@@ -91,24 +92,24 @@
                 <div class="links-container">
                     <div class="link-section">
                         <a href="#" class="link-item">
-                            <i class="uil uil-estate"></i> Empleos Disponibles
+                            <i class="uil uil-estate"></i> Empleos Diponibles
                         </a>
                         <a href="#" class="link-item">
-                            <i class="uil uil-video"></i> Empresas
+                            <i class="uil uil-building"></i> Empresas
                         </a>
                     </div>
                     <div class="section-separator"></div>
 
                     <div class="link-section">
                         <h4 class="section-title">De ti</h4>
-                        <a href="#" class="link-item">
-                            <i class="uil uil-user-square"></i> Perfil
+                        <a href="/candidatos/perfil" class="link-item">
+                            <i class="uil uil-user-circle"></i> Perfil
                         </a>
                         <a href="#" class="link-item">
-                            <i class="uil uil-history"></i> Postulaciones
+                            <i class="uil uil-file-check"></i> Postulaciones
                         </a>
                         <a href="#" class="link-item">
-                            <i class="uil uil-clock"></i> Guardados
+                            <i class="uil uil-bookmark"></i> Guardados
                         </a>
                     </div>
                     <div class="section-separator"></div>
@@ -116,10 +117,19 @@
                     <div class="link-section">
                         <h4 class="section-title">Otros</h4>
                         <a href="#" class="link-item">
-                            <i class="uil uil-fire"></i> Mensajes
+                            <i class="uil uil-envelope"></i> Mensajes
                         </a>
                     </div>
-                </div>
+
+                    <div class="section-separator"></div>
+
+                    <div class="link-section">
+                        <h4 class="section-title">Cuenta</h4>
+                        <a href="/logout" class="link-item">
+                            <i class="uil uil-signout"></i> Cerrar Sesión
+                        </a>
+                    </div>
+
             </aside>
 
             <div class="content-wrapper">
