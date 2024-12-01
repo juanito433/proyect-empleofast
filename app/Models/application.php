@@ -9,17 +9,23 @@ class application extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['id_jobs', 'id_candidate', 'publication_date', 'status'];
+    protected $fillable = [
+        'id_jobs',
+        'id_candidate',
+        'message',
+        'resume_path',
+        'status',
+    ];
 
     // Relación con el modelo Job
     public function job()
     {
-        return $this->belongsTo(job::class, 'id_jobs');
+        return $this->belongsTo(Job::class, 'id_jobs', 'id');
     }
 
-    // Relación con el modelo Candidate
+
     public function candidate()
     {
-        return $this->belongsTo(candidate::class, 'id_candidate');
+        return $this->belongsTo(Candidate::class, 'id_candidate', 'id');
     }
 }
