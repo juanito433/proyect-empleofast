@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminCandidateController;
 use App\Http\Controllers\AdminCompanyController;
+use App\Http\Controllers\applicationController;
 use App\Http\Controllers\candidateController;
 use App\Models\company;
 use Illuminate\Support\Facades\Route;
@@ -125,7 +126,12 @@ Route::middleware('auth:candidate')->group(function () {
 
 
     //trabajos disponibles
+<<<<<<< HEAD
     Route::get('ofertas/{id}/disponibles', [jobController::class, 'jobs']);
+=======
+    Route::get('ofertas/{id}/disponibles', [jobController::class, 'jobs']) ->name('jobs.show');
+    Route::post('aplicar/job/', [applicationController::class, 'store'])->name('applications.store');
+>>>>>>> 172a635fbbbb63b06f4dd8e1e3d80d0e1dbcbb0e
 
 
 });

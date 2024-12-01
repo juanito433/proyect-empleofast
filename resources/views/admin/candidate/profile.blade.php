@@ -227,7 +227,10 @@
 
                 <div class="links-container">
                     <div class="link-section">
+<<<<<<< HEAD
                         <a href="/app/perfil" class="link-item">
+=======
+>>>>>>> 172a635fbbbb63b06f4dd8e1e3d80d0e1dbcbb0e
                         <a href="/ofertas/{{$candidate->id}}/disponibles" class="link-item">
                             <i class="uil uil-suitcase"></i> Empleos Disponibles
                         </a>

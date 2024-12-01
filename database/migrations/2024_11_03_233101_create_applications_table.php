@@ -15,7 +15,13 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('id_jobs');
             $table->unsignedBigInteger('id_candidate');
+<<<<<<< HEAD
             $table->date('publication_date');
+=======
+            $table->string('resume_path');
+            $table->text('message')->nullable();
+
+>>>>>>> 172a635fbbbb63b06f4dd8e1e3d80d0e1dbcbb0e
             $table->string('status')->default('Pendiente'); ;
             $table->timestamps();
 

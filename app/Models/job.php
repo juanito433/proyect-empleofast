@@ -10,7 +10,7 @@ class job extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title', 
+        'title',
         'description',
         'id_company',
         'publication_date',
@@ -24,7 +24,12 @@ class job extends Model
 
     public function company()
     {
-    return $this->belongsTo(company::class, 'id_company');
+        return $this->belongsTo(company::class, 'id_company');
+    }
+
+    public function applications()
+    {
+        return $this->hasMany(application::class, 'id_jobs');
     }
 
     public function applications()
