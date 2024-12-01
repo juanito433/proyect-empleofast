@@ -6,6 +6,7 @@ use App\Models\application;
 use App\Models\job;
 use App\Notifications\ApplicationReceived;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class applicationController extends Controller
 {
@@ -46,5 +47,14 @@ class applicationController extends Controller
         // Redirigir con éxito
         return redirect()->route('jobs.show', $validated['id_jobs'])
             ->with('success', 'Tu aplicación ha sido enviada exitosamente.');
+    }
+    public function pendientes(Request $request, $id)
+    {
+        // Filtrar trabajos según la ID de la compañía
+        $jobs = Job::where('id_company', $id)->with('applications')->get();
+        $company = Auth::guard('company')->user(); // Obtiene el candidato autenticado
+
+
+        return view('admin.company.postualtions', compact('jobs', 'company'));
     }
 }

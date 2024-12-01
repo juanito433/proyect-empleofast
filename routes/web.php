@@ -109,6 +109,10 @@ Route::middleware('auth:company')->group(function () {
 
     //mostrar los trabajos publicados
     Route::get('empleos/{id}/publicados', [jobController::class, 'show']);
+
+    //sin atender
+    Route::get('admin/{id}/pedientes', [applicationController::class, 'pendientes']);
+
 });
 
 //rutas con sesión para candidates

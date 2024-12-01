@@ -57,16 +57,10 @@ class jobController extends Controller
     }
     public function show($id)
     {
-        $job = Job::findOrFail($id);
+        // Obtener los empleos de la compañía usando el $id
+        $company = company::findOrFail($id);
+        $empleos = $company->empleos; // Suponiendo que tienes una relación con los empleos
 
-        // Obtén el candidato autenticado, por ejemplo, desde el middleware de autenticación
-        $candidate = auth()->user();
-
-        // Asegúrate de que el usuario autenticado sea un candidato
-        if (!$candidate instanceof Candidate) {
-            abort(403, 'Solo los candidatos pueden postularse a trabajos.');
-        }
-
-        return view('app.index', compact('job', 'candidate'));
+        return view('admin.company.applications', compact('empleos', 'company'));
     }
 }
