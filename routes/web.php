@@ -11,6 +11,7 @@ use App\Http\Controllers\jobController;
 use App\Http\Controllers\LoginCandidateController;
 use App\Http\Controllers\LoginCompanyController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -46,6 +47,13 @@ Route::get('trabajos/', function () {
 
 Route::get('app/perfil', function () {
     return view('app/index');
+});
+
+Route::get('publicaciones/jobs', function () {
+    return view('admin.company.jobpublic');
+});
+Route::get('publicaciones/company', function () {
+    return view('components.companypublic');
 });
 
 //Prueba
@@ -122,4 +130,9 @@ Route::middleware('auth:candidate')->group(function () {
     //trabajos disponibles
     Route::get('ofertas/{id}/disponibles', [jobController::class, 'jobs'])->name('jobs.show');
     Route::post('aplicar/job/', [applicationController::class, 'store'])->name('applications.store');
+    Route::get('ofertas/{id}/disponibles', [jobController::class, 'jobs']);
+    Route::get('ofertas/{id}/disponibles', [jobController::class, 'jobs']) ->name('jobs.show');
+    Route::post('aplicar/job/', [applicationController::class, 'store'])->name('applications.store');
+
+
 });

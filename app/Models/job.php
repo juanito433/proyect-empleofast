@@ -31,5 +31,13 @@ class job extends Model
     {
         return $this->hasMany(Application::class, 'id_jobs');
     }
+<<<<<<< HEAD
     
+=======
+
+    public function applications()
+    {
+        return $this->hasMany(application::class, 'id_jobs');
+    }
+>>>>>>> b195b62daa975304ca13c6305bc7844394ab4021
 }

@@ -1,17 +1,36 @@
 <!DOCTYPE html>
-<!-- Coding By CodingNepal - www.codingnepalweb.com -->
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YouTube Homepage Clone | CodingNepal</title>
-    <!-- Linking Unicons For Icons -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/jobs/Jobsperfiles.css') }}">
-</head>
+    <link rel="stylesheet" href="{{ asset('css/jobs/jobsperfiles.css') }}">
+    <style>
+        /* Estilos para los botones de categoría */
+        .category-button {
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 0.94rem;
+            border-radius: 0.5rem;
+            white-space: nowrap;
+            color: var(--black-color);
+            padding: 0.4rem 0.75rem;
+            background: var(--light-gray-color);
+            transition: background 0.3s, color 0.3s;
+        }
 
+        .category-button.active {
+            background: black;
+            /* Cambiar a negro cuando está activo */
+            color: white;
+            /* Cambiar el texto a blanco */
+        }
+    </style>
+</head>
 
 <body class="sidebar-hidden">
     <div class="container">
@@ -116,36 +135,33 @@
                         </a>
                     </div>
 
+                    <div class="section-separator"></div>
+
+                    <div class="link-section">
+                        <h4 class="section-title">Cuenta</h4>
+                        <a href="/logout" class="link-item">
+                            <i class="uil uil-signout"></i> Cerrar Sesión
+                        </a>
+                    </div>
+
                 </div>
             </aside>
 
             <div class="content-wrapper">
                 <!-- Category List -->
                 <div class="category-list">
-                    <button class="category-button active" data-category="all">Todos</button>
+                    <button class="category-button" data-category="all">Todos</button>
                     @foreach ($categories as $category)
-                        <button class="category-button"
-                            data-category="{{ $category->category }}">{{ $category->category }}</button>
+                    <button class="category-button" data-category="{{ $category->category }}">{{ $category->category }}</button>
                     @endforeach
                     <button class="category-button" data-category="recientes">Recientes</button>
                 </div>
                 <div class="type-list"
-                    style="position: sticky;
-                            top: 40px;
-                            z-index: 10;
-                            background: var(--white-color);">
+                    style="position: sticky; top: 40px; z-index: 10; background: var(--white-color);">
                     @foreach ($types as $type)
-                        <button class="type-button"
-                            style="border: none;
-                                    cursor: pointer;
-                                    font-weight: 500;
-                                    font-size: 0.94rem;
-                                    border-radius: 0.5rem;
-                                    white-space: nowrap;
-                                    color: var(--black-color);
-                                    padding: 0.4rem 0.75rem;
-                                    background: var(--light-gray-color);"
-                            data-type="{{ $type->type_jobs }}">{{ $type->type_jobs }}</button>
+                    <button class="type-button"
+                        style="border: none; cursor: pointer; font-weight: 500; font-size: 0.94rem; border-radius: 0.5rem; white-space: nowrap; color: var(--black-color); padding: 0.4rem 0.75rem; background: var(--light-gray-color);"
+                        data-type="{{ $type->type_jobs }}">{{ $type->type_jobs }}</button>
                     @endforeach
                 </div>
 
@@ -153,9 +169,8 @@
                 <div class="video-list">
                     @foreach ($jobs as $job)
                         <a href="#" class="video-card" data-category="{{ $job->category }}"
-                            data-job-id="{{ $job->id }}" data-type_jobs="{{ $job->type_jobs }}"
-                            data-description="{{ $job->description }}" data-salary="{{ $job->salary }}"
-                            data-publication_date="{{ $job->publication_date }}"
+                            data-type_jobs="{{ $job->type_jobs }}" data-description="{{ $job->description }}"
+                            data-salary="{{ $job->salary }}" data-publication_date="{{ $job->publication_date }}"
                             data-image="{{ Storage::url($job->image_url) }}">
                             <div class="thumbnail-container">
                                 <img src="{{ Storage::url($job->image_url) }}" alt="Imagen del trabajo"
@@ -171,7 +186,7 @@
                                 </div>
                             </div>
                         </a>
-                         @endforeach
+                    @endforeach
                 </div>
             </div>
         </main>
@@ -179,16 +194,16 @@
 
     <!-- Modal de los perfiles de empleo-->
     <div id="myModal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <img src="" alt="Imagen del trabajo" id="modalImage" style="max-width: 100%; height: auto;">
-        <h2 id="modalTitle"><span id="jobTitle"></span></h2>
-        <p id="modalDescription">Descripción: <span id="jobDescription"></span></p>
-        <p id="modalCategory">Categorías: <span id="jobCategory"></span></p>
-        <p id="modalType_jobs">Tipo de Trabajo: <span id="jobType_jobs"></span></p>
-        <p id="modalSalary">Salario: $<span id="jobSalary"></span></p>
-        <p id="modalPublication_date">Publicado: <span id="jobPublicationDate"></span></p>
-        @if ($errors->any())
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img src="" alt="Imagen del trabajo" id="modalImage" style="max-width: 100%; height: auto;">
+            <h2 id="modalTitle"><span id="jobTitle"></span></h2>
+            <p id="modalDescription">Descripción: <span id="jobDescription"></span></p>
+            <p id="modalCategory">Categorías: <span id="jobCategory"></span></p>
+            <p id="modalType_jobs">Tipo de Trabajo: <span id="jobType_jobs"></span></p>
+            <p id="modalSalary">Salario: $<span id="jobSalary"></span></p>
+            <p id="modalPublication_date">Publicado: <span id="jobPublicationDate"></span></p>
+            @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
                     @foreach ($errors->all() as $error)
@@ -225,7 +240,6 @@
 
     <script>
         // Obtener todos los botones de categoría y las tarjetas de trabajo
-        // Obtener todos los botones de categoría y tipo de trabajo
         const categoryButtons = document.querySelectorAll('.category-button');
         const typeButtons = document.querySelectorAll('.type-button');
         const videoCards = document.querySelectorAll('.video-card');
@@ -242,8 +256,7 @@
 
                 const matchCategory = selectedCategories.length === 0 || selectedCategories.some(category =>
                     cardCategories.includes(category));
-                const matchType = selectedTypes.length === 0 || selectedTypes.some(type => cardTypes.includes(
-                    type));
+                const matchType = selectedTypes.length === 0 || selectedTypes.some(type => cardTypes.includes(type));
 
                 // Mostrar u ocultar las tarjetas según los filtros seleccionados
                 card.style.display = matchCategory && matchType ? 'block' : 'none';
@@ -255,9 +268,13 @@
             button.addEventListener('click', () => {
                 const category = button.getAttribute('data-category');
 
+                // Cambiar el estado activo de los botones
+                button.classList.toggle('active');
+
                 if (category === 'all') {
                     // Si se selecciona "Todos", resetear todos los filtros
                     selectedCategories = [];
+                    categoryButtons.forEach(btn => btn.classList.remove('active')); // Desmarcar todos
                 } else if (selectedCategories.includes(category)) {
                     // Si la categoría ya está seleccionada, desmarcarla
                     selectedCategories = selectedCategories.filter(item => item !== category);
@@ -276,6 +293,9 @@
             button.addEventListener('click', () => {
                 const type = button.getAttribute('data-type');
 
+                // Cambiar el estado activo de los botones
+                button.classList.toggle('active');
+
                 if (selectedTypes.includes(type)) {
                     // Si el tipo ya está seleccionado, desmarcarlo
                     selectedTypes = selectedTypes.filter(item => item !== type);
@@ -288,6 +308,7 @@
                 filterJobs();
             });
         });
+
         // Obtener la fecha de hace 7 días para el filtro "Recientes"
         const today = new Date();
         const oneWeekAgo = new Date(today.getTime() - 7 * 24 * 60 * 60 * 1000);
@@ -300,19 +321,17 @@
                 if (category === 'recientes') {
                     // Filtrar trabajos por fecha reciente (menos de 7 días)
                     videoCards.forEach(card => {
-                        const publicationDate = new Date(card.getAttribute(
-                            'data-publication_date'));
+                        const publicationDate = new Date(card.getAttribute('data-publication_date'));
                         const isRecent = publicationDate >= oneWeekAgo;
 
                         card.style.display = isRecent ? 'block' : 'none';
                     });
                 } else {
                     // Filtrar por categoría y tipo como antes
-                    // El código de filtrado para categorías y tipos continúa aquí...
+                    filterJobs();
                 }
             });
         });
-
 
         // Lógica del modal (sin cambios respecto a tu código)
         const modal = document.getElementById("myModal");
@@ -354,12 +373,10 @@
                 document.getElementById("jobSalary").innerText = salary;
                 document.getElementById("jobPublicationDate").innerText = publication_date;
                 modal.querySelector("img").src = image;
-
                 modal.style.display = "block";
             });
         });
     </script>
-
     <!-- <script>
         // Obtener todos los botones de categoría
         const categoryButtons = document.querySelectorAll('.category-button');
@@ -423,7 +440,6 @@
             document.body.classList.toggle("sidebar-hidden");
         });
 
-        // Initialize dark mode based on localStorage
         if (localStorage.getItem("darkMode") === "enabled") {
             document.body.classList.add("dark-mode");
             themeButton.classList.replace("uil-moon", "uil-sun");
@@ -431,7 +447,6 @@
             themeButton.classList.replace("uil-sun", "uil-moon");
         }
 
-        // Toggle dark mode when theme button is clicked
         themeButton.addEventListener("click", () => {
             const isDarkMode = document.body.classList.toggle("dark-mode");
             localStorage.setItem("darkMode", isDarkMode ? "enabled" : "disabled");
