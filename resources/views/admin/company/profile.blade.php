@@ -134,8 +134,10 @@
                         </a>
                         <a href="/admin/jobs/{{$company->id}}/create" class="link-item">
                             <i class="uil uil-plus-circle"></i> Publicar Empleo
-                        </a>
-                        <a href="#" class="link-item">
+
+                        </a>                        
+                        <a href="/admin/{{$company->id}}/pedientes" class="link-item">
+
                             <i class="uil uil-list-ui-alt"></i> Sin Atender
                         </a>
                     </div>

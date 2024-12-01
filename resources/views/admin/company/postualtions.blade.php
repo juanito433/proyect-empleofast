@@ -21,6 +21,11 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
 </head>
 
 
@@ -116,8 +121,54 @@
 
             <div class="content-wrapper">
 
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Nombre del Trabajo</th>
+                            <th scope="col">Candidato Postulado</th>
+                            <th scope="col">Curriculum</th>
+                            <th scope="col">Mensaje</th>
+                            <th scope="col">Estado</th>
+                            <th scope="col">Fecha de Postulación</th>
+                            <th scope="col">Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($jobs as $job)
+                            @foreach ($job->applications as $application)
+                                <tr>
+                                    <td>{{ $application->id }}</td>
+                                    <td>{{ $application->job->title }}</td>
+                                    <td>{{ $application->candidate->name }}</td>
+                                    <td><a href="{{ $application->cv_url }}" target="_blank">Ver CV</a></td>
+                                    <td>{{ $application->message }}</td>
+                                    <td>{{ $application->status }}</td>
+                                    <td>{{ $application->created_at->format('d-m-Y') }}</td>
+                                    <td>
+                                        <form action="#"
+                                            method="POST">
+                                            @csrf
+                                            <select name="status" onchange="this.form.submit()">
+                                                <option value="pendiente"
+                                                    {{ $application->status == 'pendiente' ? 'selected' : '' }}>
+                                                    Pendiente</option>
+                                                <option value="aceptado"
+                                                    {{ $application->status == 'aceptado' ? 'selected' : '' }}>Aceptado
+                                                </option>
+                                                <option value="rechazado"
+                                                    {{ $application->status == 'rechazado' ? 'selected' : '' }}>
+                                                    Rechazado</option>
+                                            </select>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endforeach
+                    </tbody>
+                </table>
 
-                
+
             </div>
         </main>
     </div>
