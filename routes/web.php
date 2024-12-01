@@ -85,7 +85,6 @@ Route::get('/logout', [LoginCandidateController::class, 'logout'])->name('logout
 
 //Jobs
 
-Route::get('app/perfil', [jobController::class, 'jobs']);
 
 //profile company
 
@@ -115,4 +114,11 @@ Route::middleware('auth:candidate')->group(function () {
     Route::get('candidatos/perfil', [LoginCandidateController::class, 'profile'])->name('candidate.profile');
     Route::get('candidatos/perfil/{id}/edit', [AdminCandidateController::class, 'edit']);
     Route::put('candidatos/perfil/{id}/update', [AdminCandidateController::class, 'update']);
+
+
+
+    //trabajos disponibles
+    Route::get('ofertas/{id}/disponibles', [jobController::class, 'jobs']);
+
+
 });

@@ -67,7 +67,7 @@
 
                 <div class="links-container">
                     <div class="link-section">
-                        <a href="#" class="link-item">
+                        <a href="/ofertas/{{$candidate->id}}/disponibles" class="link-item">
                             <i class="uil uil-suitcase"></i> Empleos Disponibles
                         </a>
                         <a href="#" class="link-item">
