@@ -29,6 +29,7 @@ class job extends Model
 
     public function applications()
     {
-        return $this->hasMany(application::class, 'id_jobs');
+        return $this->hasMany(Application::class, 'id_jobs');
     }
+    
 }

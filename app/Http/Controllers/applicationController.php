@@ -21,9 +21,6 @@ class applicationController extends Controller
 
         // Subir el archivo del currículum
         $resumePath = $request->file('resume')->store('resumes', 'public');
-        if (!$resumePath) {
-            return redirect()->back()->withErrors(['resume' => 'Error al subir el archivo. Intente de nuevo.']);
-        }
 
         // Crear la aplicación
         $application = Application::create([
@@ -37,6 +34,13 @@ class applicationController extends Controller
         // Notificar a la empresa (opcional)
         if ($application->job->employer) {
             $application->job->employer->notify(new ApplicationReceived($application));
+        }
+        $exists = Application::where('id_jobs', $request->id_jobs)
+            ->where('id_candidate', $request->id_candidate)
+            ->exists();
+
+        if ($exists) {
+            return redirect()->back()->withErrors(['error' => 'Ya has aplicado a esta oferta de trabajo.']);
         }
 
         // Redirigir con éxito

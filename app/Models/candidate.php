@@ -31,7 +31,7 @@ class candidate extends Authenticatable
     ];
     public function applications()
     {
-        return $this->hasMany(application::class, 'id_candidate');
+        return $this->hasMany(Application::class, 'id_candidate');
     }
 
     protected $hidden = [

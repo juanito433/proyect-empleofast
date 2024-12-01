@@ -55,4 +55,18 @@ class jobController extends Controller
 
         return redirect(url('/empresas/admin/profile'))->with('success', 'Trabajo registrado con éxito.');
     }
+    public function show($id)
+    {
+        $job = Job::findOrFail($id);
+
+        // Obtén el candidato autenticado, por ejemplo, desde el middleware de autenticación
+        $candidate = auth()->user();
+
+        // Asegúrate de que el usuario autenticado sea un candidato
+        if (!$candidate instanceof Candidate) {
+            abort(403, 'Solo los candidatos pueden postularse a trabajos.');
+        }
+
+        return view('app.index', compact('job', 'candidate'));
+    }
 }

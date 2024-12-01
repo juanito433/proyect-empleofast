@@ -36,4 +36,8 @@ class company extends Authenticatable
     {
         return $this->hasMany(Job::class); // Una empresa tiene muchos empleos
     }
+    public function empleos()
+    {
+        return $this->hasMany(Job::class, 'id_company'); // Relación uno a muchos
+    }
 }

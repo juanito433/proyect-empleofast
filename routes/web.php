@@ -22,9 +22,7 @@ use App\Http\Controllers\LoginCompanyController;
 |
 */
 
-Route::get('app/', function () {
-    return view('app');
-});
+
 
 Route::get('/', function () {
     return view('landing.index');
@@ -108,6 +106,9 @@ Route::middleware('auth:company')->group(function () {
 
     // Publicar un trabajo (procesar el formulario)
     Route::post('admin/jobs/{id}/publication', [jobController::class, 'publication']);
+
+    //mostrar los trabajos publicados
+    Route::get('empleos/{id}/publicados', [jobController::class, 'show']);
 });
 
 //rutas con sesión para candidates
@@ -119,8 +120,6 @@ Route::middleware('auth:candidate')->group(function () {
 
 
     //trabajos disponibles
-    Route::get('ofertas/{id}/disponibles', [jobController::class, 'jobs']) ->name('jobs.show');
+    Route::get('ofertas/{id}/disponibles', [jobController::class, 'jobs'])->name('jobs.show');
     Route::post('aplicar/job/', [applicationController::class, 'store'])->name('applications.store');
-
-
 });

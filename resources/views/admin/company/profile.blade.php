@@ -67,7 +67,7 @@
 
                 <div class="links-container">
                     <div class="link-section">
-                        <a href="#" class="link-item">
+                        <a href="/empleos/{{$company->id}}/publicados" class="link-item">
                             <i class="uil uil-clipboard-notes"></i> Empleos Publicados
                         </a>
                     </div>
