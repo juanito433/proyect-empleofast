@@ -8,6 +8,7 @@ use App\Notifications\ApplicationReceived;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+
 class applicationController extends Controller
 {
     public function store(Request $request)
