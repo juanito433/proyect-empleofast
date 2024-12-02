@@ -75,23 +75,26 @@
 
                 <div class="links-container">
                     <div class="link-section">
-                        <a href="/empleos/{{ $candidate->id }}/publicados" class="link-item">
-                            <i class="uil uil-clipboard-notes"></i> Empleos Publicados
+                        <a href="/ofertas/{{$candidate->id}}/disponibles" class="link-item">
+                            <i class="uil uil-suitcase"></i> Empleos Disponibles
+                        </a>
+                        <a href="#" class="link-item">
+                            <i class="uil uil-building"></i> Empresas
                         </a>
                     </div>
                     <div class="section-separator"></div>
 
                     <div class="link-section">
                         <h4 class="section-title">De ti</h4>
-                        <a href="/empresas/admin/profile" class="link-item">
-                            <i class="uil uil-user-circle"></i> Perfil
+                        <a href="/candidatos/perfil/{{ $candidate->id }}/edit" class="link-item">
+                            <i class="uil uil-user-circle"></i> Editar Perfil
                         </a>
-                        <a href="/admin/jobs/{{ $candidate->id }}/create" class="link-item">
-                            <i class="uil uil-plus-circle"></i> Publicar Empleo
+                        <a href="/candidatos/{{ $candidate->id }}/postulaciones" class="link-item">
+                            <i class="uil uil-file-check"></i> Postulaciones
                         </a>
-                        <a href="#" class="link-item">
-                            <i class="uil uil-list-ui-alt"></i> Sin Atender
-                        </a>
+                        {{-- <a href="#" class="link-item">
+                            <i class="uil uil-bookmark"></i> Guardados
+                        </a> --}}
                     </div>
                     {{-- <div class="section-separator"></div>
 
@@ -101,6 +104,7 @@
                             <i class="uil uil-envelope"></i> Mensajes
                         </a>
                     </div> --}}
+                    
                     <div class="section-separator"></div>
 
                     <div class="link-section">
@@ -109,8 +113,8 @@
                             <i class="uil uil-signout"></i> Cerrar Sesión
                         </a>
                     </div>
+                    
                 </div>
-
 
             </aside>
 
