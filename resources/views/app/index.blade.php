@@ -201,7 +201,7 @@
         <!-- Formulario para postulación -->
         <form id="applyForm" method="POST" action="{{ route('applications.store') }}" enctype="multipart/form-data">
             @csrf
-            <input type="hidden" name="id_jobs" id="jobIdInput" value="{{ $job->id }}">
+            <input type="hidden" name="id_jobs" id="jobIdInput" value="{{ $jobs->id }}">
             <input type="hidden" name="id_candidate" value="{{ $candidate->id }}">
         
             <div class="form-group">
