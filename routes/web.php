@@ -121,6 +121,7 @@ Route::middleware('auth:candidate')->group(function () {
     Route::get('candidatos/perfil/{id}/edit', [AdminCandidateController::class, 'edit']);
     Route::put('candidatos/perfil/{id}/update', [AdminCandidateController::class, 'update']);
 
+    Route::get('candidatos/{id}/postulaciones', [jobController::class, 'postulations']);
 
 
     //trabajos disponibles

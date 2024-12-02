@@ -63,4 +63,11 @@ class jobController extends Controller
 
         return view('admin.company.applications', compact('empleos', 'company'));
     }
+    public function postulations($id)
+    {
+        $candidate = Candidate::findOrFail($id);
+        $applications = $candidate->applications()->with('job')->get();
+
+        return view('admin.candidate.applications', compact('applications', 'candidate'));
+    }
 }

@@ -81,7 +81,7 @@
                         <a href="/candidatos/perfil/{{ $candidate->id }}/edit" class="link-item">
                             <i class="uil uil-user-circle"></i> Editar Perfil
                         </a>
-                        <a href="#" class="link-item">
+                        <a href="/candidatos/{{ $candidate->id }}/postulaciones" class="link-item">
                             <i class="uil uil-file-check"></i> Postulaciones
                         </a>
                         <a href="#" class="link-item">
