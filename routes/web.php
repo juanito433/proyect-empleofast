@@ -33,10 +33,10 @@ Route::get('/', function () {
 Route::get('selection/', function () {
     return view('selection_register');
 });
-Route::get('selection/empresa', function () {
+Route::get('/selection/empresa', function () {
     return view('empresa.registro.register_empresa');
 });
-Route::get('selection/candidato', function () {
+Route::get('/selection/candidato', function () {
     return view('candidato.registro.register_candidato');
 });
 
