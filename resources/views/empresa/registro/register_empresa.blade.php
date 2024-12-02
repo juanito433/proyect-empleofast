@@ -200,7 +200,7 @@
     <div class="container">
         <div class="forms">
             <div class="form login">
-                <span class="title">Login</span>
+                <span class="title">CompanyLogin</span>
                 @if ($errors->any())
                     <div class="alert alert-danger" style="color: red">
 
@@ -242,7 +242,7 @@
 
             <!-- Registration Form -->
             <div class="form signup">
-                <span class="title">Registration</span>
+                <span class="title">Company Registration</span>
 
                 <form method="POST" action="{{ route('empresas.register') }}">
                     @csrf
