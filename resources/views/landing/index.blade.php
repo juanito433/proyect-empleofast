@@ -229,14 +229,15 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                             aria-hidden="true">&times;</span></button>
-                    <h2 class="modal-title">EMPLEAFASTr</h2>
+                    <h2 class="modal-title">Inicia Candidato</h2>
                 </div>
-                <form action="app/" method="post">
-                    <input name="fullname" type="text" class="form-control" id="fullname"
-                        placeholder="Full Name">
-                    <input name="email" type="text" class="form-control" id="email"
-                        placeholder="Email Address">
-                    <input name="submit" type="submit" class="form-control" id="submit" value="Subscribe Now">
+                <form action="{{ route('sessioncandidate') }}" method="post">
+                    @csrf
+                    <input  type="text" name="email" class="form-control" id="email"
+                        placeholder="Email">
+                    <input type="text"  name="password"class="form-control" id="password"
+                        placeholder="Password ">
+                    <input  type="submit" class="form-control"  value="Inicia sesión">
                 </form>
                 <p>GRACIAS POR VISITAR NUETRA APLICACIÓN</p>
             </div>
