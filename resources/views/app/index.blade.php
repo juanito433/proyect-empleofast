@@ -49,7 +49,7 @@
                     @if ($candidate && $candidate->image_url)
                         <img src="{{ Storage::url($candidate->image_url) }}" alt="User Image" class="user-image">
                     @else
-                        <img src="{{ asset('images/default-image.jpg') }}" alt="Default Image">
+                        <img src="{{ asset('images/default-image.jpg') }}" alt="Default Image" class="user-image">
                     @endif
 
                 </div>
