@@ -171,7 +171,7 @@
                                 </div>
                             </div>
                         </a>
-                         @endforeach
+                    @endforeach
                 </div>
             </div>
         </main>
@@ -179,47 +179,49 @@
 
     <!-- Modal de los perfiles de empleo-->
     <div id="myModal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <img src="" alt="Imagen del trabajo" id="modalImage" style="max-width: 100%; height: auto;">
-        <h2 id="modalTitle"><span id="jobTitle"></span></h2>
-        <p id="modalDescription">Descripción: <span id="jobDescription"></span></p>
-        <p id="modalCategory">Categorías: <span id="jobCategory"></span></p>
-        <p id="modalType_jobs">Tipo de Trabajo: <span id="jobType_jobs"></span></p>
-        <p id="modalSalary">Salario: $<span id="jobSalary"></span></p>
-        <p id="modalPublication_date">Publicado: <span id="jobPublicationDate"></span></p>
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img src="" alt="Imagen del trabajo" id="modalImage" style="max-width: 100%; height: auto;">
+            <h2 id="modalTitle"><span id="jobTitle"></span></h2>
+            <p id="modalDescription">Descripción: <span id="jobDescription"></span></p>
+            <p id="modalCategory">Categorías: <span id="jobCategory"></span></p>
+            <p id="modalType_jobs">Tipo de Trabajo: <span id="jobType_jobs"></span></p>
+            <p id="modalSalary">Salario: $<span id="jobSalary"></span></p>
+            <p id="modalPublication_date">Publicado: <span id="jobPublicationDate"></span></p>
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
 
-        <!-- Formulario para postulación -->
-        <form id="applyForm" method="POST" action="{{ route('applications.store') }}" enctype="multipart/form-data">
-            @csrf
-            <input type="hidden" name="id_jobs" id="jobIdInput" value="{{ $jobs->id }}">
-            <input type="hidden" name="id_candidate" value="{{ $candidate->id }}">
-        
-            <div class="form-group">
-                <label for="candidateMessage">Mensaje para la empresa:</label>
-                <textarea name="message" id="candidateMessage" rows="4" class="search-input" required></textarea>
-            </div>
-        
-            <div class="form-group">
-                <label for="resume">Subir Currículum:</label>
-                <input type="file" name="resume" id="resume" class="form-control" accept=".pdf,.doc,.docx" required>
-            </div>
-        
-            <button type="submit" class="apply-button">Postularse</button>
-        </form>
-        
+            <!-- Formulario para postulación -->
+            <form id="applyForm" method="POST" action="{{ route('applications.store') }}"
+                enctype="multipart/form-data">
+                @csrf
+                <input type="hidden" name="id_jobs" id="jobIdInput" value="">
+                <input type="hidden" name="id_candidate" value="{{ $candidate->id }}">
+
+                <div class="form-group">
+                    <label for="candidateMessage">Mensaje para la empresa:</label>
+                    <textarea name="message" id="candidateMessage" rows="4" class="search-input" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="resume">Subir Currículum:</label>
+                    <input type="file" name="resume" id="resume" class="form-control"
+                        accept=".pdf,.doc,.docx" required>
+                </div>
+
+                <button type="submit" class="apply-button">Postularse</button>
+            </form>
 
 
-    </div>
+
+        </div>
     </div>
 
 
@@ -333,9 +335,8 @@
         // Agregar evento a cada tarjeta para abrir el modal
         videoCards.forEach(card => {
             card.addEventListener("click", () => {
-                const jobId = card.getAttribute('data-job-id'); // Asegúrate de usar 'data-job-id'
-                document.getElementById("jobIdInput").value =
-                    jobId; // Asigna el jobId al input correspondiente
+                const jobId = card.getAttribute('data-job-id');
+                document.getElementById("jobIdInput").value = jobId; // Asigna el ID del trabajo al input
 
                 // Asignar los demás valores al modal
                 const title = card.querySelector(".title").innerText;
@@ -346,7 +347,7 @@
                 const publication_date = card.getAttribute('data-publication_date');
                 const image = card.getAttribute('data-image');
 
-                // Asignar los valores del trabajo en el modal
+                // Actualiza los campos del modal con los datos
                 document.getElementById("jobTitle").innerText = title;
                 document.getElementById("jobDescription").innerText = description;
                 document.getElementById("jobCategory").innerText = category;
@@ -355,6 +356,7 @@
                 document.getElementById("jobPublicationDate").innerText = publication_date;
                 modal.querySelector("img").src = image;
 
+                // Muestra el modal
                 modal.style.display = "block";
             });
         });
