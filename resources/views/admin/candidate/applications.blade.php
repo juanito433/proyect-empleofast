@@ -93,14 +93,14 @@
                             <i class="uil uil-list-ui-alt"></i> Sin Atender
                         </a>
                     </div>
-                    <div class="section-separator"></div>
+                    {{-- <div class="section-separator"></div>
 
                     <div class="link-section">
                         <h4 class="section-title">Otros</h4>
                         <a href="#" class="link-item">
                             <i class="uil uil-envelope"></i> Mensajes
                         </a>
-                    </div>
+                    </div> --}}
                     <div class="section-separator"></div>
 
                     <div class="link-section">

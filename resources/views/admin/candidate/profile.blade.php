@@ -84,18 +84,18 @@
                         <a href="/candidatos/{{ $candidate->id }}/postulaciones" class="link-item">
                             <i class="uil uil-file-check"></i> Postulaciones
                         </a>
-                        <a href="#" class="link-item">
+                        {{-- <a href="#" class="link-item">
                             <i class="uil uil-bookmark"></i> Guardados
-                        </a>
+                        </a> --}}
                     </div>
-                    <div class="section-separator"></div>
+                    {{-- <div class="section-separator"></div>
 
                     <div class="link-section">
                         <h4 class="section-title">Otros</h4>
                         <a href="#" class="link-item">
                             <i class="uil uil-envelope"></i> Mensajes
                         </a>
-                    </div>
+                    </div> --}}
                     
                     <div class="section-separator"></div>
 
