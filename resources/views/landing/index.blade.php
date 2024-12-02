@@ -79,8 +79,10 @@
                             <h3 class="wow fadeInUp" data-wow-delay="0.4s">Estudaintes de Ingeniería informática</h3>
                         </div>
                         <div class="wow fadeInUp" data-wow-delay="0.6s">
-                            <h3>Somo estudiantes del TecNM Campus de la Región Sierra</h3>
-                            <h3>Este proyecto fue realizado con el fin de psar la maetria de taller de investiagación 2</h3>
+                            <h3>Somos estudiantes del TecNM Campus de la Región Sierra</h3>
+                            <h3>Este proyecto fue realizado con el fin de mejorar las interacciones entre los empleadores y candidatos 
+                                al momento de buscar trabajo.
+                            </h3>
                         </div>
                     </div>
                 </div>
@@ -107,7 +109,7 @@
                         </div>
                         <div class="media-body">
                             <h2 class="media-heading">Busca Empleo</h2>
-                            <p>Te ayudamos a que encuentres de lo que prefieras y gustes registrandote como candidato</p>
+                            <p>Te ayudamos a que encuentres el trabajo de lo que tu prefieras y gustes registrandote como candidato</p>
                         </div>
                     </div>
                 </div>
@@ -131,7 +133,7 @@
                         </div>
                         <div class="media-body">
                             <h2 class="media-heading">Interacción</h2>
-                            <p>Buscamos qu ela interacción de empresa a candidato sea la mas optima posible para que tanto las empresas como los candidatos puedan optener beneficios</p>
+                            <p>Buscamos que la interacción de la empresa a candidato sea la más optima posible para que tanto las empresas como los candidatos puedan optener beneficios</p>
                         </div>
                     </div>
                 </div>
@@ -152,7 +154,7 @@
                 <div class="col-md-offset-2 col-md-8 col-sm-12">
                     <div class="section-title">
                         <h1 class="wow fadeInUp" data-wow-delay="0.3s">Candidatos</h1>
-                        <p class="wow fadeInUp" data-wow-delay="0.6s">Si quieres comenzar a buscar empelo de inmediato puedes registrarte aqui para pasar al siginete nivel</p>
+                        <p class="wow fadeInUp" data-wow-delay="0.6s">Si quieres comenzar a buscar empleo de inmediato puedes registrarte aqui para pasar al siginete nivel</p>
                     </div>
                     <div class="contact-form wow fadeInUp" data-wow-delay="1.0s">
                         <form id="contact-form" method="post" action="#">
@@ -192,7 +194,7 @@
                 <div class="col-md-4 col-sm-6">
                     <h2>EMPLEAFAST</h2>
                     <div class="wow fadeInUp" data-wow-delay="0.3s">
-                        <p>Esta aplicación web es un poryecto el cual hacemos para que personas que no tienen empleo puedan encontarr uno en donde puedan sentir que encajan</p>
+                        <p>Esta aplicación web es un poryecto el cual hacemos para que personas que no tienen empleo puedan encontrar uno en donde puedan sentir que encajan</p>
                         <p class="copyright-text">Copyright &copy; 2024 EMPLEAFAST <br>
                             Diseñado por<a rel="nofollow" href="http://www.google.com/+templatemo"
                                 target="_parent" > Alumnos del ITSS</a></p>
